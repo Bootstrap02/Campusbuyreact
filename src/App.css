@@ -1,39 +1,200 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --color-Fancyblack: #131921;
+  --color-Fancygray: #3b4149;
+  --color-Fancyyellow: #febd69;
+  --color-FancyNavyblue: #232f3e;
+  --color-Fancyharsh: #FFECEF;
+  --color-Fancytextheaders: #5C1818;
+  --color-Fancytopicheaders: #003739;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-float infinite 3s ease-in-out;
-  }
+body {
+  font-family: 'Rubik', sans-serif;
+  background: #fafafa;
 }
 
-.App-header {
-  min-height: 100vh;
+a, .nav-link {
+  text-decoration: none;
+  display: inline-block;
+  transition: opacity 0.3s ease-in-out;
+}
+
+a:hover, .nav-link:hover {
+  opacity: 0.8;
+}
+
+/* Header part */
+.header-top-strip {
+  background-color: var(--color-Fancyblack);
+  border-bottom: 1px solid var(--color-Fancygray);
+}
+
+.header-upper {
+  background-color: var(--color-Fancyblack);
+  border-bottom: 1px solid var(--color-Fancygray);
+}
+
+.form-control {
+  border-color: inherit;
+  box-shadow: none;
+}
+
+.header-upper .input-group-text {
+  background-color: var(--color-Fancyyellow);
+  border: none;
+  color: var(--color-Fancyblack);
+}
+
+.header-bottom {
+  background-color: var(--color-FancyNavyblue);
+  border-bottom: 1px solid var(--color-Fancygray);
+}
+
+.header-top-strip .dropdown-menu{
+  background-color: var(--color-Fancyblack);
+  width:100%;
+  border-bottom: 1px solid #131921;
+}
+.header-upper .dropdown-menu{
+  background-color: var(--color-Fancyblack);
+  width:100%;
+   
+}
+.header-top-strip .dropdown-menu .dropdown-item{
+  color: white;
+  border-bottom: 1px solid wheat;
+  padding:10px;
+}
+.header-upper .dropdown-menu .dropdown-item{
+  color: white;
+  border-bottom: 1px solid wheat;
+  padding:10px;
+}
+/* Header part ends here */
+
+/* Footer Part */
+Footer{
+  background-color: var(--color-Fancyblack); 
+}
+
+Footer:not(:first-child){
+  border-top: 1px solid var(--color-Fancygray);
+}
+.footer-top-newsletter .input{
+  border:none;
+  width: 100%;
+  padding:4px;
+  margin:2px;
+}
+.footer-top-newsletter button{
+  padding:4px;
+  margin: 3px;
+  color: white;
+  border-radius: 5px;
+  border:1px solid var(--color-Fancygray);
+  background-color: var(--color-Fancyblack);
+}
+
+.footer-top-newsletter{
+  border-radius: 5px;
+  width:100%;
+}
+
+.footer-top-data{
+  gap:10px;
+}
+.footer-top-data .sender{
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+}
+.social-media-links{
+  gap:10px;
+}
+.social-media-links .footer-social-media-images{
+  background-color: rgba(255, 255, 255, 0.171);
+  border-radius: 50%;
+}
+
+/* Footer Part ends here   */
+
+/* Homepage */
+
+.home-wrapper-1 .homepage-hot-categories
+{
+  background-color:var(--color-Fancyharsh);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 15px;
+  border-radius: 15px;
+}
+.home-wrapper-1 .homepage-hot-categories .header{
+  color:var(--color-Fancytopicheaders)
+}
+.home-wrapper-1 .homepage-hot-categories .text{
+  color:var(--color-Fancytextheaders);
+  font-weight: bold;
 }
 
-.App-link {
-  color: rgb(112, 76, 182);
+.home-wrapper-1 .homepage-hot-seller-deals .best-sellers{
+  background-color: #febd69;
+  border-radius: 10px;
+  padding: 10px;
+}
+.home-wrapper-1 .homepage-hot-seller-deals .newest-products{
+  background-color: #B4B4E7;
+  border-radius: 10px;
+  padding: 10px;
+}
+.home-wrapper-1 .homepage-hot-seller-deals .main-stores{
+  background-color: #919191;
+  border-radius: 10px;
+  padding: 10px;
+}
+.home-wrapper-1 .homepage-hot-seller-deals .hot-deals{
+  background-color: #DDEB82;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-@keyframes App-logo-float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+.home-wrapper-1 .homepage-hot-seller-deals h6{
+  color:var(--color-Fancytextheaders)
 }
+
+.product-card{
+  background-color: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .card-price-text{
+  color:var(--color-Fancytextheaders);
+  font-weight: bold;
+}
+
+.product-card .naira{
+  width: 30px;
+  height: 30px;
+}
+
+.product-card .card-person{
+  background-color: greenyellow;
+  border-radius:10px;
+  padding: 5px;
+  position:absolute;
+  top:5px;
+  right:5px;
+}
+
+.product-listings .trending-products{
+  color:#FFD700;
+  background-color:var(--color-Fancyblack);
+  display: inline-block;
+  padding: 10px;
+}
+/* Homepage ends here */
