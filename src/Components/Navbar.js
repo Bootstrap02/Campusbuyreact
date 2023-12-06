@@ -12,7 +12,7 @@ const Navbar = () => {
   
 
   return (
-    <div className=" w-[100%]">
+    <div className=" container">
         <section className='upper-mobile-nav flex items-center justify-between shadow-xl shadow-[#3b4149] bg-[#131921]'>
             <div className="mobile-logo m-2 p-2">
             <Link><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={50} alt='logo'/></Link>
@@ -45,6 +45,9 @@ const Navbar = () => {
         <NavLink to='/postproduct'><button className='p-2 sell-product-btn btn-warning  absolute top-40 right-5 z-50 mt-14 text-black'>Sell Something</button></NavLink>
       </section>
       <section className='mobile categories-listing mt-4'>
+      <div className='w-[100%] my-4 text-4xl max-lg:m-0 max-lg:text-xl  trending-products'>
+        <h2>Our Categories</h2>
+      </div>
   <div className="flex gap-2 flex-wrap">
     {Mobile.map((mobile) => (
      <div className="w-[30%]">
@@ -56,7 +59,7 @@ const Navbar = () => {
      </div>
     ))}
   </div>
-  <button className="bg-black text-white p-2 text-xl">See More</button>
+  <button className="bg-black text-white p-2 text-xl flex justify-center">See More</button>
 </section>
 
     </div>

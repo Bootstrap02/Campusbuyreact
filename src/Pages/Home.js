@@ -78,11 +78,11 @@ const Home = () => {
       </div>
     </section>
     <br/>
-    <section className=' product-listings m-2 p-2 max-lg:m-0 max-lg:p-0 max-lg:flex max-lg:flex-col justify-center'>
-      <div className='w-[100%] m-4 text-4xl max-lg:m-0 max-lg:text-xl max-lg:w-[90%] trending-products'>
+    <div className='w-[100%] my-4 text-4xl max-lg:m-0 max-lg:text-xl  trending-products'>
         <h2>Trending Products</h2>
       </div>
-    <div className=' max=lg:w-[90%] flex-wrap flex justify-center   max-lg:flex-col'>
+    <section className=' product-listings m-2 p-2 max-lg:m-0 max-lg:p-0 max-lg:flex max-lg:flex-col max-lg:justify-start  max-lg:items-center'>
+    <div className=' max=lg:w-[100%] flex-wrap flex justify-center   max-lg:flex-col'>
     <Productcards/>
     </div>
     </section>

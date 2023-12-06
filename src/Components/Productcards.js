@@ -16,7 +16,7 @@ const Productcards = () => {
     const truncatedDescription = truncateDescription(Product.description,25);
 
     return (
-      <div className='product-card flex w-[30%] max-lg:w-[100%] max-lg:flex-col  m-3 p-3 max-lg:m-0 max-lg:p-0' key={Product._id}>
+      <div className='product-card flex w-[30%] max-lg:w-[95%] max-lg:flex-col justify-center  m-3 p-3 max-lg:m-0 max-lg:p-0' key={Product._id}>
         <div className="card mb-3">
           <div className='card-person'>{Product.person}</div>
           <img src={Product.image_1} className="card-img-top" alt="..." />

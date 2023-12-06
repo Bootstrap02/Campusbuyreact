@@ -108,37 +108,35 @@ export const Products = [
 export const Mobile = [
     {
         title: 'Empty Hostels',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455232/Isioma_project/work/houseS_jah9ux.jpg',
 
     },
     
     {
         title: 'Furnished Hostels',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455063/Isioma_project/work/houseB_ionrzt.jpg',
 
     },
     {
         title: 'Roommates',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701853272/Campusbuy/how-to-find-a-roommate_cvmgz7.png',
 
     },
     {
         title: 'Furnitures',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701424575/Campusbuy/135086141_NzM2LTczNi1kM2ZmMzAyZjNm_mjzzks.webp',
 
     },
     {
         title: 'Tutorials',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701853271/Campusbuy/seminar_IMG_1950-scaled_4x3-1024x768_uy8emd.jpg',
 
     },
     {
         title: 'Services',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701853271/Campusbuy/2_muca0p.png',
 
     },
 
 ]
 
-
-// export default {Products, Mobile};

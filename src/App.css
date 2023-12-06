@@ -205,10 +205,10 @@ Footer:not(:first-child){
   right:5px;
 }
 
-.product-listings .trending-products{
+ .trending-products{
   color:#FFD700;
   background-color:var(--color-Fancyblack);
-  display: inline-block;
+  display: block;
   padding: 10px;
 }
 /* Homepage ends here */
