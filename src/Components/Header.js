@@ -1,33 +1,44 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {BsSearch} from 'react-icons/bs';
+import { MdLocalShipping } from "react-icons/md";
+import { MdPayments } from "react-icons/md";
+import { TbPremiumRights } from "react-icons/tb";
+import { RiAccountPinBoxFill } from "react-icons/ri";
+import { IoMdNotifications } from "react-icons/io";
+import { FaHeart } from "react-icons/fa";
+import Navbar from '../Components/Navbar';
+
+
+
+
 
 const Header = () => {
   return (
     <>
-    <header className='header-top-strip py-3'>
+    <header className='header-top-strip py-3 max-lg:hidden'>
       <div className='container-xxl'>
         <div className='row'>
-          <div className='col-3'>
-            <a href='/' className='bg-secondary p-1'>
-              <img src='https://res.cloudinary.com/dneejvhch/image/upload/v1701424838/Campusbuy/4796564_wmdvmx.png' width={40}/><span  className=' text-white'>  Logistics</span></a>
+          <div className='col-3 text-center'>
+            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <MdLocalShipping className='header-react-icons'/><span  className=' text-white'>  Logistics</span></a>
             <p className='text-secondary mb-0'>Let's bring your order to your doorpost</p>
           </div>
-          <div className='col-3'>
-            <a href='/' className='bg-secondary p-1'>
-            <img src='https://res.cloudinary.com/dneejvhch/image/upload/v1701243808/Campusbuy/escrow-process_j3s6ij.png' width={40}/>  <span  className=' text-white'>  Excro Payment</span></a>
+          <div className='col-3 text-center'>
+            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <MdPayments className='header-react-icons'/>  <span  className=' text-white'>  Excro Payment</span></a>
             <p className='text-secondary mb-0'>Pay for your order with ease</p>
           </div>
-          <div className='col-3'>
-            <a href='/' className='bg-secondary p-1'>
-            <img src='https://res.cloudinary.com/dneejvhch/image/upload/v1701243808/Campusbuy/3306411-200_t0opem.png' width={40}/>  <span  className=' text-white'>  Premium Services</span></a>
+          <div className='col-3 text-center'>
+            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <TbPremiumRights className='header-react-icons' />  <span  className=' text-white'>  Premium Services</span></a>
             <p className='text-secondary mb-0'>Show your Products to more Customers</p>
           </div>
           <div className='col-md-3'>
             <p className='text-white mb-0'>Search for new School</p>
             <div className="input-group">
   <input type="text" className="form-control py-2" aria-label="Text input with segmented dropdown button" placeholder='eg: Uniben'/>
-  <button type="button" className="btn btn-warning text-black btn-outline-secondary">Search</button>
+  <button type="button" className="btn bg-[#FFCA28] text-black btn-outline-secondary">Search</button>
   <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span className="visually-hidden">Toggle Dropdown</span>
   </button>
@@ -43,7 +54,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-    <header className='header-upper py-3'>
+    <header className='header-upper py-3 max-lg:hidden'>
     <div className='container-xxl'>
       <div className='row justify-between'>
         <div className='col-2'>
@@ -62,7 +73,7 @@ const Header = () => {
 
             <div class="col-3 dropdown">
   <button className="btn btn-secondary dropdown-toggle p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-  <img  src='https://res.cloudinary.com/dneejvhch/image/upload/v1701243808/Campusbuy/2321232_suthow.png' width={40}/>  <span  classNameName='text-white'>  Account</span>
+  <div className='flex gap-2 justify-center items-center'><RiAccountPinBoxFill className='header-react-icons'/>  <span  classNameName='text-white'>  Account</span></div>
   </button>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li><Link className="dropdown-item " to="/account">Account</Link></li>
@@ -73,10 +84,10 @@ const Header = () => {
 
 
             <div className='col-3'>
-              <NavLink to='/wishlist' className= 'bg-secondary p-1'><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1701424839/Campusbuy/wishlist-icon-2048x1952-13b2gake_ygs7lg.png'  width={40}/><span  className=' text-white'>  Wishlist</span></NavLink>
+              <NavLink to='/wishlist' className= 'bg-secondary p-1 flex gap-2 justify-center items-center mx-4'><FaHeart className='header-react-icons'/><span  className=' text-white'>  Wishlist</span></NavLink>
             </div>
             <div className='col-3'>
-              <NavLink to='/notification'  className= 'bg-secondary p-1'><img  src='https://res.cloudinary.com/dneejvhch/image/upload/v1701243808/Campusbuy/3119338_lagnju.png'  width={40}/><span  className=' text-white'>  Notification</span></NavLink>
+              <NavLink to='/notification'  className= 'bg-secondary p-1 flex gap-2 justify-center items-center '><IoMdNotifications className='header-react-icons'/><span  className=' text-white'>  Notification</span></NavLink>
             </div>
             <div className='col-3'>
              <NavLink to='/postproduct'><button className='p-2 sell-product-btn btn-warning text-black'>Sell Something</button></NavLink>
@@ -88,7 +99,7 @@ const Header = () => {
       </div>
     </div>
     </header>
-    <header className='header-bottom py-3'>
+    <header className='header-bottom py-3 max-lg:hidden'>
    <div className='container-xxl'>
     <div className='row justify-content-center'>
       <div className='col-2'>
@@ -105,7 +116,10 @@ const Header = () => {
       </div>
     </div>
    </div>
-   </header>   
+   </header> 
+   <header className='header-mobile hidden max-lg:block'>
+    <Navbar/>
+    </header>  
     </>
   )
 }

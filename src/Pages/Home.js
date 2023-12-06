@@ -2,30 +2,31 @@ import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import Productcards from '../Components/Productcards';
 
-const Home = () => {
+
+const Home = () => { 
   return (
-    <>
-    <section className='home-wrapper-1 m-2 p-2'>
-      <div className='container-xxl'>
+    <div className='container '>
+    <section className='home-wrapper-1 m-2 p-2 max-lg:hidden'>
+      <div className='container-xxl  '>
         <div className='row'>
           <div className='col-6'>
           <div className='homepage-hot-categories p-3'>
-            <div>
-            <h2 className='header'>Our Hot Categories</h2>
-            <div>
+            <div className=' flex flex-col gap-2'>
+            <h2 className='header text-xl'><strong>Our Hot Categories</strong></h2>
+            <div className='flex flex-col gap-1'>
              <p><Link className='text'>Apartments</Link></p>
-             <p><Link className='text'>Phoness</Link></p>
+             <p><Link className='text'>Phones</Link></p>
              <p><Link className='text'>Laptops</Link></p>
              <p><Link className='text'>Beds and Furnitures</Link></p>
              <p><Link className='text'>Clothes</Link></p>
-             <p><Link className='text'>Hair and Wigs</Link></p>
-             <p><Link className='text'>Tutorialss</Link></p>
+             <p><Link className='text'>Hairs and Wigs</Link></p>
+             <p><Link className='text'>Tutorials</Link></p>
              <p><Link className='text'>Generators</Link></p>
-             <p><Link className='text'>Eletrical Appliancess</Link></p>
+             <p><Link className='text'>Eletrical Appliances</Link></p>
              <p><Link className='text'>Textbooks, Handouts and Materials</Link></p>
             </div>
             </div>
-            <div className=''>
+            <div>
               <img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697455241/Isioma_project/work/wow_s7fgmt.png' alt='anything' width={320}/>
               </div>
             </div>
@@ -77,17 +78,15 @@ const Home = () => {
       </div>
     </section>
     <br/>
-    <section className='product-listings m-2 p-2'>
-      <div className='col-12 m-4  trending-products'>
+    <section className=' product-listings m-2 p-2 max-lg:m-0 max-lg:p-0 max-lg:flex max-lg:flex-col justify-center'>
+      <div className='w-[100%] m-4 text-4xl max-lg:m-0 max-lg:text-xl max-lg:w-[90%] trending-products'>
         <h2>Trending Products</h2>
       </div>
-    <div className='container-xxl'>
-            <div className='row justify-content-center d-flex gap-5'>
+    <div className=' max=lg:w-[90%] flex-wrap flex justify-center   max-lg:flex-col'>
     <Productcards/>
     </div>
-    </div>
     </section>
-    </>
+    </div>
   )
 }
 

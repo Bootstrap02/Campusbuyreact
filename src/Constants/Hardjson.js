@@ -1,4 +1,4 @@
-const Products = [
+export const Products = [
 {
     _id: 'ghbhg66t88',
     title: 'XIAOMI Redmi',
@@ -105,5 +105,40 @@ const Products = [
 
 ]
 
+export const Mobile = [
+    {
+        title: 'Empty Hostels',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
 
-export default Products;
+    },
+    
+    {
+        title: 'Furnished Hostels',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+
+    },
+    {
+        title: 'Roommates',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+
+    },
+    {
+        title: 'Furnitures',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+
+    },
+    {
+        title: 'Tutorials',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+
+    },
+    {
+        title: 'Services',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701686308/Campusbuy/75882006_ODA4LTEwODAtMDczOWNkYmI5Ny0z_b7gwis.webp',
+
+    },
+
+]
+
+
+// export default {Products, Mobile};

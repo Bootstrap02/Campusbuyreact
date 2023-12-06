@@ -29,10 +29,24 @@ a:hover, .nav-link:hover {
   opacity: 0.8;
 }
 
+
 /* Header part */
 .header-top-strip {
   background-color: var(--color-Fancyblack);
   border-bottom: 1px solid var(--color-Fancygray);
+}
+
+.header-react-icons {
+  width:30px;
+  height:30px;
+  font-weight:bold;
+  color: white;
+}
+.mobile-header-react-icons {
+  width:15px;
+  height:15px;
+  font-weight:bold;
+  color: white;
 }
 
 .header-upper {
