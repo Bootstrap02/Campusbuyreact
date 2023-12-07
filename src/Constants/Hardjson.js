@@ -108,13 +108,13 @@ export const Products = [
 export const Mobile = [
     {
         title: 'Empty Hostels',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455232/Isioma_project/work/houseS_jah9ux.jpg',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455063/Isioma_project/work/houseBA_vlm1yz.jpg',
 
     },
     
     {
         title: 'Furnished Hostels',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455063/Isioma_project/work/houseB_ionrzt.jpg',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1697455235/Isioma_project/work/houseX_cfyuwm.jpg',
 
     },
     {
@@ -124,7 +124,7 @@ export const Mobile = [
     },
     {
         title: 'Furnitures',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701424575/Campusbuy/135086141_NzM2LTczNi1kM2ZmMzAyZjNm_mjzzks.webp',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701887451/Campusbuy/modern-bedframe-6x6ft-36680873148659_govqml.webp',
 
     },
     {
@@ -134,7 +134,7 @@ export const Mobile = [
     },
     {
         title: 'Services',
-        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701853271/Campusbuy/2_muca0p.png',
+        image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701939750/Campusbuy/managed_services_pgouga.jpg',
 
     },
 

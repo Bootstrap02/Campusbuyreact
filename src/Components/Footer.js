@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSend } from "react-icons/bs";
+import { MdHome } from "react-icons/md";
+import { MdLocalShipping } from "react-icons/md";
+import { MdPayments } from "react-icons/md";
+import { TbPremiumRights } from "react-icons/tb";
+import { MdAddIcCall } from "react-icons/md";
 
 const Footer = () => {
+
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollPos = document.documentElement.scrollTop;
+
+    if (currentScrollPos > prevScrollPos) {
+      setScrollDirection("down");
+    } else {
+      setScrollDirection("up");
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
+
   return (
     <>
     <footer className='py-4 max-lg:hidden'>
@@ -32,7 +59,7 @@ const Footer = () => {
               <h6 className='text-xl'>Campusbuy Office</h6>
               <p>Block 26, 23 road, Festac Extension, Old Ojo road, Satellite-town, Lagos, Nigeria. </p>
               <p>+2348164910957, +2347042380116, +2349069412463, +2348188317279</p>
-              <p>louisjoseph131@gmail.com, louismatrix47@gmail.com, udegbueconfidence@gmail.com</p>
+              <p>louisjoseph131@gmail.com, loui[10px]atrix47@gmail.com, udegbueconfidence@gmail.com</p>
             <div className='social-media-links d-flex align-items-center'>
              <Link><img className='footer-social-media-images' src='https://res.cloudinary.com/dneejvhch/image/upload/v1697455019/Isioma_project/work/facebook_egls0e.png' alt='facebook' width={30}/></Link>
              <Link><img className='footer-social-media-images' src='https://res.cloudinary.com/dneejvhch/image/upload/v1697455239/Isioma_project/work/twitter_njn3rw.png' alt='twitter' width={30}/></Link>
@@ -89,7 +116,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-    <footer className='py-4'>
+    <footer className='py-4 max-lg:hidden'>
       <div className='container-xxl'>
         <div className='row'>
           <div className='col-12'>
@@ -99,6 +126,17 @@ const Footer = () => {
           </div>
         </div>
       </div>
+    </footer>
+    <footer className={`mobile-footer w-[100%] hidden max-lg:block bg-[#232f3e] shadow-md shadow-[#3b4149] ${
+          scrollDirection === "down" ? "scrolled-down" : "scrolled-up"
+        }`}>
+    <div className="upper-mobile-links flex gap-2 m-2 p-2 justify-between items-center">
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></Link></div>           
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdLocalShipping className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Logistics</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdPayments className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Excro Payment</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><TbPremiumRights  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Premium Services</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></Link></div>
+            </div>
     </footer>
     </>
   )

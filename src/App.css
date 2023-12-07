@@ -49,6 +49,109 @@ a:hover, .nav-link:hover {
   color: white;
 }
 
+.mobile-footer-react-icons {
+  width:20px;
+  height:20px;
+  font-weight:bold;
+  color: white;
+}
+
+.header-top-strip{
+  position: fixed;
+  z-index: 2000;
+}
+
+/* Add this CSS to your stylesheet or in a style tag within your component */
+
+/* Sticky header */
+
+.header-upper {
+  position: sticky;
+  top: 9%;
+  z-index: 1000;
+}
+
+.header-bottom {
+  position: sticky;
+  top: 28%;
+  z-index: 1000;
+}
+
+/* Hide upper and bottom header on scroll down */
+.header-upper.scrolled-down{
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+/* Hide upper and bottom header on scroll down */
+
+.header-bottom.scrolled-down {
+  transform: translateY(-250%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Show upper and bottom header on scroll up */
+.header-upper.scrolled-up {
+  transform: translateY(30%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.header-bottom.scrolled-up {
+  transform: translateY(30%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add this CSS to your stylesheet or in a style tag within your component */
+
+.upper-mobile-nav {
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+}
+
+.middle-mobile-nav {
+  position: sticky;
+  top: 12%;
+  z-index: 1000;
+}
+.mobile-footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 1000;
+}
+
+/* Hide middle mobile nav on scroll down */
+.middle-mobile-nav.scrolled-down {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Show middle mobile nav on scroll up */
+.middle-mobile-nav.scrolled-up {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+.mobile-footer.scrolled-down {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Show middle mobile nav on scroll up */
+.mobile-footer.scrolled-up {
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+/* Adjust padding for the main content when header is sticky */
+.mobile-sell-product-button{
+  position: fixed;
+  z-index: 2000;
+  top: 70%;
+  right: 4%;
+}
+
+
+
 .header-upper {
   background-color: var(--color-Fancyblack);
   border-bottom: 1px solid var(--color-Fancygray);

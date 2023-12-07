@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
@@ -8,29 +8,51 @@ import {Mobile} from "../Constants/Hardjson.js";
 
 
 const Navbar = () => {
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
 
-  
+  const handleScroll = () => {
+    const currentScrollPos = document.documentElement.scrollTop;
+
+    if (currentScrollPos > prevScrollPos) {
+      setScrollDirection("down");
+    } else {
+      setScrollDirection("up");
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
 
   return (
-    <div className=" container">
-        <section className='upper-mobile-nav flex items-center justify-between shadow-xl shadow-[#3b4149] bg-[#131921]'>
+    <div className=" w-[100%]">
+        <header className='upper-mobile-nav w-[100%] flex items-center justify-between shadow-md shadow-[#3b4149] bg-[#131921]'>
             <div className="mobile-logo m-2 p-2">
             <Link><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={50} alt='logo'/></Link>
             </div>
             <div className="upper-mobile-links flex gap-2 m-2 p-2">
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><RiAccountPinBoxFill className='mobile-header-react-icons'/>  <span  className='text-white text-sm'>  Account</span></Link></div>           
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-sm'>  Wishlist</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-sm'>  Notification</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-sm'>  Help</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><RiAccountPinBoxFill className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Account</span></Link></div>           
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></Link></div>
+            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></Link></div>
             </div>
-        </section>
-      <section className="bg-[#232f3e] shadow-xl shadow-[#3b4149]">
+        </header>
+       <header
+        className={`middle-mobile-nav bg-[#232f3e] shadow-md shadow-[#3b4149] ${
+          scrollDirection === "down" ? "scrolled-down" : "scrolled-up"
+        }`}
+      >
         <form className="mobile-search-schools m-2 p-2 flex flex-col gap-3">
             <div>
             <input type="text" placeholder="Search for your product. eg. unilag" className="border-none rounded-sm w-full my-2 p-2"/>
             <div class="input-group my-2">
   <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for  school. eg. unilag"/>
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span className='text-white'>Dropdown</span></button>
   <ul class="dropdown-menu dropdown-menu-end">
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -42,9 +64,9 @@ const Navbar = () => {
             <button className="mobile-submit-button rounded-sm p-2 bg-green-700 border">Search</button>
             </div>
         </form>
-        <NavLink to='/postproduct'><button className='p-2 sell-product-btn btn-warning  absolute top-40 right-5 z-50 mt-14 text-black'>Sell Something</button></NavLink>
-      </section>
-      <section className='mobile categories-listing mt-4'>
+        <NavLink to='/postproduct' className='mobile-sell-product-button'><button className='p-2 sell-product-btn btn-warning   text-black'>Sell Something</button></NavLink>
+      </header>
+      <header className='mobile categories-listing mt-4'>
       <div className='w-[100%] my-4 text-4xl max-lg:m-0 max-lg:text-xl  trending-products'>
         <h2>Our Categories</h2>
       </div>
@@ -59,8 +81,8 @@ const Navbar = () => {
      </div>
     ))}
   </div>
-  <button className="bg-black text-white p-2 text-xl flex justify-center">See More</button>
-</section>
+  <button className="bg-black text-white p-2 text-xl mt-3 ml-3 rounded-md">See More</button>
+</header>
 
     </div>
   );
