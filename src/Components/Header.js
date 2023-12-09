@@ -76,7 +76,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-    <header className={`header-upper py-3 max-lg:hidden ${scrollDirection === 'down' ? 'scrolled-down' : 'scrolled-up'}`}>
+    <header className={`header-upper w-[100%] py-3 max-lg:hidden ${scrollDirection === 'down' ? 'scrolled-down' : 'scrolled-up'}`}>
     <div className='container-xxl'>
       <div className='row justify-between'>
         <div className='col-2'>
@@ -121,25 +121,25 @@ const Header = () => {
       </div>
     </div>
     </header>
-    <header className={`header-bottom py-3 max-lg:hidden ${scrollDirection === 'down' ? 'scrolled-down' : 'scrolled-up'}`}>
+    <header className={`header-bottom py-3 w-[100%] mb-[6rem] max-lg:hidden ${scrollDirection === 'down' ? 'scrolled-down' : 'scrolled-up'}`}>
    <div className='container-xxl'>
     <div className='row justify-content-center'>
       <div className='col-2'>
         <NavLink to='/'><span  className=' text-white'>Home</span></NavLink>
       </div>
       <div className='col-2'>
-        <NavLink to='/'><span  className=' text-white'>About us</span></NavLink>
+        <NavLink to='/about'><span  className=' text-white'>About us</span></NavLink>
       </div>
       <div className='col-2'>
-        <NavLink to='/'><span  className=' text-white'>Contact</span></NavLink>
+        <NavLink to='/contact'><span  className=' text-white'>Contact</span></NavLink>
       </div>
       <div className='col-2'>
-        <NavLink to='/'><span  className=' text-white'>Help</span></NavLink>
+        <NavLink to='/help'><span  className=' text-white'>Help</span></NavLink>
       </div>
     </div>
    </div>
    </header> 
-   <header className='header-mobile hidden max-lg:block'>
+   <header className='header-mobile w-[100%] hidden max-lg:block'>
     <Navbar/>
     </header>  
     </>

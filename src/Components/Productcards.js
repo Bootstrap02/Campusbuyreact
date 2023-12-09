@@ -11,7 +11,7 @@ const truncateDescription = (description, wordLimit) => {
   return description;
 };
 
-const Productcards = () => {
+export const Productcards = () => {
   const Productcard = Products.map((Product) => {
     const truncatedDescription = truncateDescription(Product.description,25);
 
@@ -21,7 +21,7 @@ const Productcards = () => {
           <div className='card-person'>{Product.person}</div>
           <img src={Product.image_1} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">{Product.title}</h5>
+            <h5 className="card-title"><strong>{Product.title}</strong></h5>
             <p className="card-text">{truncatedDescription}</p>
             <div className='product-price d-flex gap-2 align-items-center'>
               <TbCurrencyNaira className='naira' />
@@ -40,4 +40,64 @@ const Productcards = () => {
   return Productcard;
 };
 
-export default Productcards;
+export const Productcard = () => {
+  const Productcard = Products.map((Product) => {
+    const truncatedDescription = truncateDescription(Product.description,25);
+
+    return (
+      <div className='product-card flex w-[40%] max-lg:w-[95%] max-lg:flex-col justify-center  m-3 p-3 max-lg:m-0 max-lg:p-0' key={Product._id}>
+        <div className="card mb-3">
+          <div className='card-person'>{Product.person}</div>
+          <img src={Product.image_1} className="card-img-top" alt="..." />
+          <div className="card-body">
+            <h5 className="card-title"><strong>{Product.title}</strong></h5>
+            <p className="card-text">{truncatedDescription}</p>
+            <div className='product-price d-flex gap-2 align-items-center'>
+              <TbCurrencyNaira className='naira' />
+              <h3 className="card-price-text text-2xl">{Product.price}</h3>
+            </div>
+            <p className="card-location"><strong>Location:</strong> {Product.location}</p>
+            <p className="card-brand"><strong>Brand:</strong> {Product.brand}</p>
+            <p className="card-brand"><strong>Condition:</strong> {Product.condition}</p>
+            <NavLink to='/product' className="btn btn-primary">View Product</NavLink>
+          </div>
+        </div>
+      </div>
+    );
+  });
+
+  return Productcard;
+};
+
+export const Mobileproductcard = () => {
+  const Productcard = Products.map((Product) => {
+    const truncatedDescription = truncateDescription(Product.description,25);
+
+    return (
+      <div className='product-card flex w-[100%]  flex-col justify-center mb-3' key={Product._id}>
+        <div className="card w-[100%] ">
+          <div className='mobile-card-person'>{Product.person}</div>
+        <div className='flex items-center'>
+       <div className='mobile-card-img w-[80%]'> <img src={Product.image_1} className="card-img-top" alt="..."/></div>
+          <div className="card-body">
+            <h5 className="card-title"><strong>{Product.title}</strong></h5>
+            <p className="card-text">{truncatedDescription}</p>
+            <div className='product-price d-flex gap-2 align-items-center'>
+              <TbCurrencyNaira className='naira' />
+              <h3 className="card-price-text text-2xl">{Product.price}</h3>
+            </div>
+            <p className="card-location"><strong>Location:</strong> {Product.location}</p>
+            <p className="card-brand"><strong>Brand:</strong> {Product.brand}</p>
+            <p className="card-brand"><strong>Condition:</strong> {Product.condition}</p>
+            <NavLink to='/product' className="btn btn-primary">View Product</NavLink>
+          </div>
+        </div>
+        </div>
+      </div>
+    );
+  });
+
+  return Productcard;
+};
+
+// export default { Productcards, Productcard };

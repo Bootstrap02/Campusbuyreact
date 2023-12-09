@@ -109,8 +109,8 @@ a:hover, .nav-link:hover {
 }
 
 .middle-mobile-nav {
-  position: sticky;
-  top: 12%;
+  position: fixed;
+  top: 10%;
   z-index: 1000;
 }
 .mobile-footer {
@@ -193,6 +193,11 @@ a:hover, .nav-link:hover {
   border-bottom: 1px solid wheat;
   padding:10px;
 }
+
+
+
+
+
 /* Header part ends here */
 
 /* Footer Part */
@@ -307,6 +312,14 @@ Footer:not(:first-child){
   top:5px;
   right:5px;
 }
+.product-card .mobile-card-person{
+  background-color: greenyellow;
+  border-radius:10px;
+  padding: 5px;
+  position:absolute;
+  top:5px;
+  left:5px;
+}
 
  .trending-products{
   color:#FFD700;
@@ -315,3 +328,40 @@ Footer:not(:first-child){
   padding: 10px;
 }
 /* Homepage ends here */
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  .middle-mobile-nav {
+    top: 8%;
+  }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1024px) {
+  .middle-mobile-nav {
+    top: 6%;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+  .header-upper {
+    top: 6%;
+  }
+
+  .header-bottom {
+    top: 14%;
+  }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  .middle-mobile-nav {
+    top: 8%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 820px) {
+  .middle-mobile-nav {
+    top: 8%;
+  }
+}
+
+

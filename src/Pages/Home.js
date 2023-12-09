@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import Productcards from '../Components/Productcards';
+import { Productcards, Mobileproductcard } from '../Components/Productcards.js';
+import {Mobile} from "../Constants/Hardjson.js"; 
 
 
 const Home = () => { 
@@ -77,13 +78,40 @@ const Home = () => {
         </div>
       </div>
     </section>
+
+    <section className=' product-listings mt-[15rem] flex-col justify-start items-center  hidden max-lg:flex'>
+
+<header className='mobile categories-listing mt-4'>
+  <div className='w-[100%] my-4 text-4xl max-lg:m-0 max-lg:text-xl  trending-products'>
+    <h2>Our Categories</h2>
+  </div>
+<div className="flex gap-2 justify-center flex-wrap">
+{Mobile.map((mobile) => (
+ <div className="w-[30%]">
+   <div className="flex flex-col gap-2  m-2 p-1 " key={mobile.title}>
+    <img src={mobile.image} alt={mobile.title} width={100} />
+    <p>{mobile.title}</p>
+  </div>
+
+ </div>
+))}
+</div>
+<button className="bg-black text-white p-2 text-xl mt-3 ml-3 rounded-md">See More</button>
+</header>
+</section>
+
     <br/>
     <div className='w-[100%] my-4 text-4xl max-lg:m-0 max-lg:text-xl  trending-products'>
         <h2>Trending Products</h2>
       </div>
-    <section className=' product-listings m-2 p-2 max-lg:m-0 max-lg:p-0 max-lg:flex max-lg:flex-col max-lg:justify-start  max-lg:items-center'>
-    <div className=' max=lg:w-[100%] flex-wrap flex justify-center   max-lg:flex-col'>
+    <section className=' product-listings m-2 p-2 max-lg:hidden'>
+    <div className=' w-[100%] flex-wrap flex justify-center '>
     <Productcards/>
+    </div>
+    </section>
+    <section className=' product-listings  flex-col justify-start items-center  hidden max-lg:flex'>
+    <div className=' w-[100%]   justify-center   max-lg:flex-col'>
+    <Mobileproductcard/>
     </div>
     </section>
     </div>

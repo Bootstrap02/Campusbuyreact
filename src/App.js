@@ -5,6 +5,7 @@ import Layout from './Components/Layout';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import Help from './Pages/Help';
 // import Firstpage from './Pages/Firstpage';
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
       {/* <Route path='/' element={<Firstpage/>}/> */}
         <Route path="/" element={<Layout />}>
           <Route index element= {<Home />}/>
-          <Route path='about' element= {<About />}/>
-          <Route path='contact' element= {<Contact />}/>
+          <Route path='/about' element= {<About />}/>
+          <Route path='/contact' element= {<Contact />}/>
+          <Route path='/help' element= {<Help />}/>
         </Route>
     </Routes>
     </BrowserRouter>
