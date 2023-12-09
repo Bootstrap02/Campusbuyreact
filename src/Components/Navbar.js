@@ -33,7 +33,7 @@ const Navbar = () => {
     <div className=" w-[100%] ">
         <header className='upper-mobile-nav w-[100%] flex items-center justify-between shadow-md shadow-[#3b4149] bg-[#131921]'>
             <div className="mobile-logo m-2 p-2">
-            <Link><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={50} alt='logo'/></Link>
+            <Link><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={80} alt='logo'/></Link>
             </div>
             <div className="upper-mobile-links flex gap-2 m-2 p-2">
             <div><Link className='flex  flex-col gap-1 justify-center items-center'><RiAccountPinBoxFill className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Account</span></Link></div>           

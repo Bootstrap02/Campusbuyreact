@@ -5,14 +5,15 @@ import { TbCurrencyNaira } from 'react-icons/tb';
 import {Productcard} from '../Components/Productcards.js';
 import Mobilesearch from '../Components/Mobilesearch.js'
 
-const About = () => {
+const About = ({props}) => {
+  // const {category} = props;
   return (
     <div className='w-[100%]'>
       <div className='w-[100%] flex flex-col gap-2 max-lg:hidden'>
       <div className='m-3 p-2 flex justify-start items-center'>
         <div  className='bg-[#f5f5f5] text-black p-2 m-2 rounded-lg '>Campusbuy</div>
         /
-        <div className='bg-[#f5f5f5] text-black p-2 m-2 rounded-lg '>Mobile Phones</div>
+        <div className='bg-[#f5f5f5] text-black p-2 m-2 rounded-lg '>Mobile Phones {/* {category} */}</div>
       </div>
       <div className='flex gap-3'>
         <div className='flex flex-col gap-2 w-[40%]'>
