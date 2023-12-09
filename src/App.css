@@ -110,7 +110,7 @@ a:hover, .nav-link:hover {
 
 .middle-mobile-nav {
   position: fixed;
-  top: 10%;
+  top: 13%;
   z-index: 1000;
 }
 .mobile-footer {
