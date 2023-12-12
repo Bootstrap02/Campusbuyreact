@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Help from './Pages/Help';
+import Productpage from './Pages/Productpage';
 // import Firstpage from './Pages/Firstpage';
 
 function App() {
@@ -18,8 +19,9 @@ function App() {
           <Route index element= {<Home />}/>
           <Route path='/about' element= {<About />}/>
           <Route path='/contact' element= {<Contact />}/>
-          <Route path='/help' element= {<Help />}/>
+          {/* <Route path='/help' element= {<Help />}/> */}
         </Route>
+        <Route path='/productpage/:title' element={<Productpage />}/>
     </Routes>
     </BrowserRouter>
     </>

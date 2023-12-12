@@ -49,11 +49,11 @@ const Navbar = () => {
       >
         <form className="mobile-search-schools m-2 p-2 flex flex-col gap-3">
             <div>
-            <input type="text" placeholder="Search for your product. eg. unilag" className="border-none rounded-sm w-full my-2 p-2"/>
+            <input type="text" placeholder="Search for your product. eg. Laptops" className="border-none rounded-sm w-full my-2 p-2"/>
             <div class="input-group my-2">
   <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for  school. eg. unilag"/>
   <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span className='text-white'>Dropdown</span></button>
-  <ul class="dropdown-menu dropdown-menu-end">
+  <ul class="dropdown-menu dropdown-menu-end" style={{ zIndex: 3000 }}>
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>

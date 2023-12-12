@@ -47,7 +47,7 @@
 
 //           <div class="col-3 dropdown">
 //   <button className="btn btn-secondary bg-green-900 dropdown-toggle p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-//   <div className='flex gap-2 justify-center items-center'><span  classNameName='text-white rounded-sm border p-2 m-1 text-sm'>  Brand</span></div>
+//   <div className='flex gap-2 justify-center items-center'><span  className='text-white rounded-sm border p-2 m-1 text-sm'>  Brand</span></div>
 //   </button>
 //   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 //     <li><Link className="dropdown-item " to="/account">Account</Link></li>
@@ -57,7 +57,7 @@
 // </div>
 //           <div class="col-3 dropdown">
 //   <button className="btn btn-secondary bg-green-900 dropdown-toggle p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-//   <div className='flex gap-2 justify-center items-center'><span  classNameName='text-white rounded-sm border p-2 m-1 text-sm'>  Condition</span></div>
+//   <div className='flex gap-2 justify-center items-center'><span  className='text-white rounded-sm border p-2 m-1 text-sm'>  Condition</span></div>
 //   </button>
 //   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 //     <li><Link className="dropdown-item " to="/account">Account</Link></li>

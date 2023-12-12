@@ -95,7 +95,7 @@ const Header = () => {
 
             <div class="col-3 dropdown">
   <button className="btn btn-secondary dropdown-toggle p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className='flex gap-2 justify-center items-center'><RiAccountPinBoxFill className='header-react-icons'/>  <span  classNameName='text-white'>  Account</span></div>
+  <div className='flex gap-2 justify-center items-center'><RiAccountPinBoxFill className='header-react-icons'/>  <span  className='text-white'>  Account</span></div>
   </button>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li><Link className="dropdown-item " to="/account">Account</Link></li>
