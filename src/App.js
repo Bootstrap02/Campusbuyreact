@@ -20,8 +20,8 @@ function App() {
           <Route path='/about' element= {<About />}/>
           <Route path='/contact' element= {<Contact />}/>
           {/* <Route path='/help' element= {<Help />}/> */}
+<Route path='/productpage/:title' element={<Productpage />}/>
         </Route>
-        <Route path='/productpage/:title' element={<Productpage />}/>
     </Routes>
     </BrowserRouter>
     </>

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, {useState} from "react";
 import { useParams } from 'react-router-dom';
-import images from '../Constants/images';
-import { Callbackmodals, Messagemodals } from '../Components/Productmodals';
-import Mobileproductpage from '../Components/Mobileproductpage';
-import Promoproducts from '../Components/Promoproducts';
-import {Productcards} from '../Components/Productcards';
+import { Callbackmodals, Messagemodals } from './Productmodals';
+
 import { TbCurrencyNaira } from 'react-icons/tb';
 import { MdCancel } from 'react-icons/md';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Link } from "react-router-dom";
+import images from "../Constants/images";
 
-const Productpage = () => {
-  const [modals, setModals] = useState(false);
+const Mobileproductpage = () => {
+
+    const [modals, setModals] = useState(false);
   const [callbackModals, setCallbackModals] = useState(false);
 
   // Separate state variables for success messages
@@ -48,11 +51,39 @@ const Productpage = () => {
     setCallbackModals(false);
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    prevArrow:null,
+    nextArrow: null,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+
+
   const { title } = useParams();
   const findProduct = images.Card.find((product) => product.title === title);
 
-  const initialSelectedImage = findProduct ? findProduct.photos[0].image_1 : null;
-  const [selectedImage, setSelectedImage] = useState(initialSelectedImage);
+  
+
 
   if (!findProduct) {
     return (
@@ -63,71 +94,55 @@ const Productpage = () => {
   }
   
 
-  
-
   return (
-    <div className="container my-6">
-      <div className="row max-lg:hidden">
-        <div className="col-1 border border-gray-700 flex flex-col gap-3 ">
+    <div className="container mt-[17.5rem]">
+        <div>
+       <div>
+       
+       <div className=" border border-gray-700 mb-3 ">
+       <Slider {...settings}>
           {Object.values(findProduct.photos[0]).map((image, index) => (
             <div
-            key={index}
-            style={{
-              borderBottom: '1px solid #A3B1C1',
-              border: selectedImage === image ? '1px solid #FFD700' : 'transparent',
-            }}
-          >
+            key={index}>
             <img
               src={image}
               alt="main_image"
-              className="mb-2"
-              onClick={() => setSelectedImage(image)}
             />
           </div>
           ))}
+           </Slider>
         </div>
-
-        <div className="col-8">
-          <div className="row flex justify-between">
-            <div className="col-6">
-            <img src={selectedImage} alt="big_image" />
-            </div>
-            <div className="col-6">
-              <h1 className="text-center text-2xl text-black text-bold shadow-md p-3 m-2">
+            
+           
+       </div>
+       <div>
+              <h1 className="text-center text-2xl text-black text-bold shadow-md p-2">
                 {findProduct.title}
               </h1>
-              <div className="m-2 flex flex-col gap-3 p-2">
-                <div className="m-1">Condition: {findProduct.condition}</div>
-                <div className="m-1">Brand: {findProduct.brand}</div>
-                <div className="m-1">Location: {findProduct.location}</div>
-                <div className="m-1">Remaining Stock: {findProduct.stock}</div>
+              <div className="m-2 flex flex-wrap gap-3 p-2 justify-center">
+                <div className="m-1"><strong>Condition:</strong> {findProduct.condition}</div>
+                <div className="m-1"><strong>Brand:</strong> {findProduct.brand}</div>
+                <div className="m-1"><strong>Location:</strong> {findProduct.location}</div>
+                <div className="m-1"><strong>Stock:</strong> {findProduct.stock}</div>
                 <div className="product-price d-flex gap-2 m-1 align-items-center">
-                  Price:
+                <strong>Price:</strong>
                   <div className="text-2xl flex gap-2 text-[#5C1818]">
                     <TbCurrencyNaira className="naira" />
                     <h3 className="card-price-text text-2xl">{findProduct.price}</h3>
                   </div>
                 </div>
-                <div className="m-1">Sold: {findProduct.amountSold}</div>
-                <div className="m-1">{findProduct.description}</div>
+                <div className="m-1"><strong>Sold:</strong> {findProduct.amountSold}</div>
+                <div className="m-1"><strong>Description:</strong> {findProduct.description}</div>
               </div>
             </div>
-          </div>
-          <div className="container">
-          <div className='w-[100%] my-4 text-4xl text-center max-lg:m-0 max-lg:text-xl  trending-products'>
-        <h2>Popular Products</h2>
-      </div>
-                  <Promoproducts />
-                </div>
-        </div>
-        <div className="col-3 flex flex-col gap-4 border border-red-800">
+            <div className="p-4 flex flex-col gap-4 border border-red-800">
           <div className="text-center text-bold text-[#5C1818] text-2xl m-2 p-2">
             Seller Information
           </div>
-          <div className="flex flex-col gap-6 m-2 justify-center w-[100%] ">
+          <div className="flex flex-col gap-6 my-2 justify-center w-[100%] ">
             <div className="flex gap-3 ">
               <div className="flex flex-col gap-3 justify-center ">
-                <div className="flex gap-4 justify-center items-center mb-2">
+                <div className="flex gap-4 justify-between items-center mb-2">
                   <div className="bg-[#f5f5f5] rounded-full shadow-lg">
                     <img src={findProduct.ownerImage} width={100} alt="seller_image" />
                   </div>
@@ -150,7 +165,7 @@ const Productpage = () => {
                   </div>
                   <div className="text-center">
                     <button
-                      className="bg-orange-700 p-2 inline-block w-full m-2"
+                      className="bg-orange-700 p-2 inline-block container m-2"
                       onClick={openModals}
                     >
                       <span className="text-white">Send a Message</span>
@@ -221,19 +236,11 @@ const Productpage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="hidden max-lg:block">
-            <Mobileproductpage/>
-         </div>
-      <div className='container'>
-        <div className='w-[100%] my-4 text-4xl text-center max-lg:m-0 max-lg:text-xl  trending-products'>
-        <h2>Other products you might like</h2>
-      </div>
-      <div className='flex-wrap flex justify-center'> <Productcards/></div>
-     
-      </div>
+        </div>
     </div>
-  );
-};
+  )
 
-export default Productpage;
+ 
+}
+
+export default Mobileproductpage
