@@ -33,13 +33,13 @@ const Navbar = () => {
     <div className=" w-[100%] ">
         <header className='upper-mobile-nav w-[100%] flex items-center justify-between shadow-md shadow-[#3b4149] bg-[#131921]'>
             <div className="mobile-logo  px-2 ">
-            <Link><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={80} alt='logo'/></Link>
+            <NavLink to='#'><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={80} alt='logo'/></NavLink>
             </div>
-            <div className="upper-mobile-links flex gap-2 px-2">
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><RiAccountPinBoxFill className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Account</span></Link></div>           
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'  to='/about'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></Link></div>
+            <div className="upper-mobile-NavLinks flex gap-2 px-2">
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><RiAccountPinBoxFill className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Account</span></NavLink></div>           
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/about'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></NavLink></div>
             </div>
         </header>
        <header
