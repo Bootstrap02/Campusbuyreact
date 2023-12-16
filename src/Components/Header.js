@@ -7,16 +7,19 @@ import { TbPremiumRights } from "react-icons/tb";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
-import Navbar from '../Components/Navbar';
+import Navbar from './Navbar';
+import useActiveComponent from '../Hooks/UseActiveComponent';
 
 
 
 
 
 const Header = () => {
-
+  const { activeComponent, setActive } = useActiveComponent();
   const [scrollDirection, setScrollDirection] = useState('up');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+
 
   const handleScroll = () => {
     const currentScrollPos = document.documentElement.scrollTop;
@@ -93,27 +96,86 @@ const Header = () => {
         <div className='col-6'>
           <div className='row '>
 
-            <div class="col-3 dropdown">
-  <button className="btn btn-secondary dropdown-toggle p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-  <div className='flex gap-2 justify-center items-center'><RiAccountPinBoxFill className='header-react-icons'/>  <span  className='text-white'>  Account</span></div>
-  </button>
-  <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><Link className="dropdown-item " to="/account">Account</Link></li>
-    <li><Link className="dropdown-item " to="/settings">Settings</Link></li>
-    <li><Link className="dropdown-item " to="#">Sign up/Sign in</Link></li>
-  </ul>
-</div>
-
-
-            <div className='col-3'>
-              <NavLink to='/wishlist' className= 'bg-secondary p-1 flex gap-2 justify-center items-center mx-4'><FaHeart className='header-react-icons'/><span  className=' text-white'>  Wishlist</span></NavLink>
-            </div>
-            <div className='col-3'>
-              <NavLink to='/notification'  className= 'bg-secondary p-1 flex gap-2 justify-center items-center '><IoMdNotifications className='header-react-icons'/><span  className=' text-white'>  Notification</span></NavLink>
-            </div>
-            <div className='col-3'>
-             <NavLink to='/postproduct'><button className='p-2 sell-product-btn btn-warning text-black'>Sell Something</button></NavLink>
-            </div>
+          <div className='col-3 dropdown'>
+        <button
+          className='btn btn-secondary dropdown-toggle p-1'
+          type='button'
+          id='dropdownMenuButton1'
+          data-bs-toggle='dropdown'
+          aria-expanded='false'
+        >
+          <div className='flex gap-2 justify-center items-center'>
+            <RiAccountPinBoxFill className='header-react-icons' />{' '}
+            <span className='text-white'> Account</span>
+          </div>
+        </button>
+        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+          <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage'
+              onClick={() => {
+                setActive('Account');
+                console.log('Clicked Account');
+              }}
+              >
+              Account
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage/messages'
+              onClick={() => setActive('Messages')}
+            >
+              Messages
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage/callbacks'
+              onClick={() => setActive('Callbacks')}
+            >
+              Callbacks
+            </NavLink>
+          </li>
+          <li>
+            <Link className='dropdown-item' to='#'>
+              Sign up/Sign in
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className='col-3'>
+        <NavLink
+          to='/mainpage'
+          className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'
+          onClick={() => setActive('Wishlist')}
+        >
+          <FaHeart className='header-react-icons' />
+          <span className=' text-white'> Wishlist</span>
+        </NavLink>
+      </div>
+      <div className='col-3'>
+        <NavLink
+          to='/mainpage'
+          className='bg-secondary p-1 flex gap-2 justify-center items-center'
+           onClick={() =>{
+            setActive('Notifications')
+            console.log({activeComponent})
+           }}
+         
+        >
+          <IoMdNotifications className='header-react-icons' />
+          <span className=' text-white'> Notification</span>
+        </NavLink>
+      </div>
+      <div className='col-3'>
+        <NavLink to='/postproduct'>
+          <button className='p-2 sell-product-btn btn-warning text-black'>Sell Something</button>
+        </NavLink>
+      </div>
             
            
           </div>

@@ -258,6 +258,45 @@ const testimonials = [
   },
 ];
 
+export const Notification = [
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1698058939/Design_Portfolio/app1splashscreen_kz1sij.png',
+    title: 'Check out these new Products in your School',
+  },
+
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701676466/Campusbuy/105030016_MTEyNS0xNTAwLTdhOTUzNDZkYTA_kgc4ov.webp',
+    title: 'Check out these new Apartments in your School',
+  },
+]
+export const Message = [
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1698058939/Design_Portfolio/app1splashscreen_kz1sij.png',
+    title: 'Hi, I a interested in your 250kg Refridgerator',
+    name: 'Susan Mayer'
+  },
+
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701676466/Campusbuy/105030016_MTEyNS0xNTAwLTdhOTUzNDZkYTA_kgc4ov.webp',
+    title: 'Hello, what is the last price for your iphone8',
+    name: 'Gabriella Solis'
+  },
+]
+export const Callback = [
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1698058939/Design_Portfolio/app1splashscreen_kz1sij.png',
+    name: 'Martha Huber',
+    Phone: '080987654321',
+  },
+
+  {
+    image: 'https://res.cloudinary.com/dneejvhch/image/upload/v1701676466/Campusbuy/105030016_MTEyNS0xNTAwLTdhOTUzNDZkYTA_kgc4ov.webp',
+    name: 'Bree Van de kamp',
+    Phone: '070453728913',
+  },
+]
+
+
 export const Card = [
 
 
