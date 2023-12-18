@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Firstheader } from '../Components/Subheaders';
 import { Minifooter } from '../Components/Subheaders';
-import Rectangle from '../Assets/Rectangle284.jpg';
-import Rectangled from '../Assets/Rectangle283.jpg';
-import Rectangler from '../Assets/Rectangle281.webp';
-import Rectangles from '../Assets/Rectangle282.png';
-import Model from '../Assets/Rectangle278.png';
-import Models from '../Assets/Rectangle279.png';
-import Modella from '../Assets/Rectangle280.png';
 
 const Firstpage = () => {
-  const backgroundImages = [Rectangle, Rectangled, Rectangler, Rectangles];
+  const backgroundImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702923189/Campusbuy/Rectangle282_jjals7.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702923184/Campusbuy/Rectangle281_e14kee.webp',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702923224/Campusbuy/Rectangle284_nwr2av.jpg',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702923226/Campusbuy/Rectangle283_cg0ya0.jpg'
+];
   const [randomImage, setRandomImage] = useState('');
-  const modelImages = [Model, Models, Modella];
+  const modelImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702923184/Campusbuy/Rectangle280_dd0l4a.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702923185/Campusbuy/Rectangle279_tmtlav.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702923187/Campusbuy/Rectangle278_mhr17c.png'
+];
   const [randomModelImage, setRandomModelImage] = useState('');
 
   useEffect(() => {
