@@ -10,8 +10,9 @@ const Firstpage = () => {
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923226/Campusbuy/Rectangle283_cg0ya0.jpg'
 ];
   const [randomImage, setRandomImage] = useState('');
-  const modelImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702923184/Campusbuy/Rectangle280_dd0l4a.png',
-'https://res.cloudinary.com/dneejvhch/image/upload/v1702923185/Campusbuy/Rectangle279_tmtlav.png',
+  const modelImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_282_sf3aum.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_287_yhfqlc.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_285_sy4qed.png',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923187/Campusbuy/Rectangle278_mhr17c.png'
 ];
   const [randomModelImage, setRandomModelImage] = useState('');
@@ -82,7 +83,7 @@ const Firstpage = () => {
       </div>
       
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>
-      <div>
+      <div className='mt-[4rem]'>
       <div className='w-[100%] '><div className="input-group rounded-[10px] flex justify-center ">
   <input type="text" className="form-control py-2 m-1  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
   <button type="button" className="btn bg-[#FFCA28] p-2 rounded-[20px] text-black btn-outline-secondary"><strong>Search</strong></button>
