@@ -81,11 +81,11 @@ const Firstpage = () => {
         <div><NavLink className='text-white text-bold' to='#'>Sign up/Sign in</NavLink></div>
       </div>
       
-      <div className='flex flex-col justify-center gap-4 items-center m-4 p-2'>
+      <div className='flex flex-col justify-center gap-4 items-center  p-2'>
       <div>
       <div className='w-[100%] '><div className="input-group rounded-[10px] flex justify-center ">
-  <input type="text" className="form-control py-3 m-2  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
-  <button type="button" className="btn bg-[#FFCA28] p-3 rounded-[20px] text-black btn-outline-secondary"><strong>Search</strong></button>
+  <input type="text" className="form-control py-2 m-1  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
+  <button type="button" className="btn bg-[#FFCA28] p-2 rounded-[20px] text-black btn-outline-secondary"><strong>Search</strong></button>
   <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
   </button>
@@ -97,7 +97,7 @@ const Firstpage = () => {
     <li><a className="dropdown-item first-pagelist border" href="#">Separated link</a></li>
   </ul>
 </div></div>
-<div className=' m-4 mt-[2rem] flex flex-col gap-4 '><span className='text-[2.2rem] text-bold text-[#D27681]'>Do Business with your Neighbours and Colleagues through Campusbuy.</span>
+<div className='  mt-[3rem] flex flex-col gap-4 '><span className='text-[2rem] text-bold text-[#D27681]'>Do Business with your Neighbours and Colleagues through Campusbuy.</span>
 <p className='text-xl text-white'>The most reliable platform for University, Polytechnic, Monotechnic and all Tertiary Institutions Campus trading</p></div>
 
       </div>
