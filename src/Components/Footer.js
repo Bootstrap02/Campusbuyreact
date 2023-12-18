@@ -131,11 +131,11 @@ const Footer = () => {
           scrollDirection === "down" ? "scrolled-down" : "scrolled-up"
         }`}>
     <div className="upper-mobile-links flex gap-2 m-2 p-2 justify-between items-center">
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></Link></div>           
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdLocalShipping className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Logistics</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdPayments className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Excro Payment</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><TbPremiumRights  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Premium Services</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></Link></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></NavLink></div>           
+            <div><NavLink to= '/firstpage' className='flex  flex-col gap-1 justify-center items-center'><MdLocalShipping className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Logistics</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdPayments className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Excro Payment</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><TbPremiumRights  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Premium Services</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></NavLink></div>
             </div>
     </footer>
     </>
