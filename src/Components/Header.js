@@ -45,18 +45,18 @@ const Header = () => {
       <div className='container-xxl'>
         <div className='row'>
           <div className='col-3 text-center'>
-            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
-            <MdLocalShipping className='header-react-icons'/><span  className=' text-white'>  Logistics</span></a>
+            <NavLink to='/firstpage' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <MdLocalShipping className='header-react-icons'/><span  className=' text-white'>  Logistics</span></NavLink>
             <p className='text-secondary mb-0'>Let's bring your order to your doorpost</p>
           </div>
           <div className='col-3 text-center'>
-            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
-            <MdPayments className='header-react-icons'/>  <span  className=' text-white'>  Excro Payment</span></a>
+            <NavLink to='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <MdPayments className='header-react-icons'/>  <span  className=' text-white'>  Excro Payment</span></NavLink>
             <p className='text-secondary mb-0'>Pay for your order with ease</p>
           </div>
           <div className='col-3 text-center'>
-            <a href='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
-            <TbPremiumRights className='header-react-icons' />  <span  className=' text-white'>  Premium Services</span></a>
+            <NavLink to='/' className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'>
+            <TbPremiumRights className='header-react-icons' />  <span  className=' text-white'>  Premium Services</span></NavLink>
             <p className='text-secondary mb-0'>Show your Products to more Customers</p>
           </div>
           <div className='col-md-3'>

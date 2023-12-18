@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Miniheader, Minifooter } from '../../Components/Subheaders'
 import Account from './Account';
 import Wishlist from './Wishlist';
 import Notifications from './Notifications';
@@ -35,9 +36,11 @@ const Mainpage = () => {
   };
 
   return (
-    <div className='container text-center'>
-      <div className='row max-lg:hidden '>
-        <div className='col-2 m-2 flex flex-col gap-2  border-4 border-red-800'>
+    <div className=' text-center container '>
+      <div className=''><Miniheader/></div>
+     <div className='container'>
+     <div className='row max-lg:hidden '>
+        <div className='col-2 m-2 flex flex-col gap-2 '>
           <NavLink
             className='m-2 p-2 border border-gray-400   '
             onClick={() => handleNavLinkClick('Account')}
@@ -76,6 +79,7 @@ const Mainpage = () => {
         </div>
         <div className='col-9 m-2 shadow-md border border-gray-400'>{renderComponent()}</div>
       </div>
+     </div>
      <div className='w-[100%] hidden max-lg:block'>
      <div className='row '>
         <div className='w-[30%]  flex flex-col gap-2 justify-start items-center text-sm '>
@@ -118,6 +122,7 @@ const Mainpage = () => {
         <div className='w-[70%] shadow-md border border-gray-400'>{renderComponent()}</div>
       </div>
      </div>
+     <div  className=''><Minifooter/></div>
     </div>
   );
 };

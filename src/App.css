@@ -172,6 +172,15 @@ a:hover, .nav-link:hover {
   background-color: var(--color-FancyNavyblue);
   border-bottom: 1px solid var(--color-Fancygray);
 }
+.mini-header-upper {
+  background-color: var(--color-Fancyblack);
+  border-bottom: 1px solid var(--color-Fancygray);
+}
+
+.mini-header-bottom {
+  background-color: var(--color-FancyNavyblue);
+  border-bottom: 1px solid var(--color-Fancygray);
+}
 
 .header-top-strip .dropdown-menu{
   background-color: var(--color-Fancyblack);
@@ -194,7 +203,9 @@ a:hover, .nav-link:hover {
   padding:10px;
 }
 
-
+.dropdown-toggle[data-bs-toggle]::after {
+  color: white; /* Set your desired color */
+}
 
 
 

@@ -13,14 +13,14 @@ import Mainpage from './Pages/Accessories/Mainpage'
 // import Callbacks from './Pages/Accessories/Callbacks'
 import Help from './Pages/Help';
 import Productpage from './Pages/Productpage';
-// import Firstpage from './Pages/Firstpage';
+ import Firstpage from './Pages/Firstpage';
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
-      {/* <Route path='/' element={<Firstpage/>}/> */}
+      <Route path='/firstpage' element={<Firstpage />}/>
         <Route path="/" element={<Layout />}>
           <Route index element= {<Home />}/>
           <Route path='/about' element= {<About />}/>
