@@ -5,6 +5,8 @@ import Layout from './Components/Layout';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
+import {Signup} from './Pages/Signup';
+import {Signin} from './Pages/Signup';
 import Mainpage from './Pages/Accessories/Mainpage'
 // import Account from './Pages/Accessories/Account'
 // import Wishlist from './Pages/Accessories/Wishlist'
@@ -30,6 +32,8 @@ function App() {
 <Route path='/productpage/:title' element={<Productpage />}/>
         </Route>
         <Route path='/mainpage' element= {<Mainpage />}/>
+        <Route path='/signup' element= {<Signup />}/>
+        <Route path='/signin' element= {<Signin />}/>
         {/* <Route path='/mainpage/account' element= {<Account/>}/>
         <Route path='/mainpage/wishlist' element= {<Wishlist />}/>
         <Route path='/mainpage/messages' element= {<Messages />}/>

@@ -19,6 +19,29 @@ body {
   background: #fafafa;
 }
 
+.sell-product-response{
+position: fixed;
+}
+
+.sent-message-done{
+  color:green;
+  width: 30px;
+  height: 30px;
+}
+
+.sell-product-modal{
+  position: absolute;
+ z-index: 3000;
+  top:0;
+  background-color: rgba(0, 0, 0, 0.884);
+  width:100%;
+}
+
+.sell-product-cancel-button{
+  color:white;
+}
+
+
 a, .nav-link {
   text-decoration: none;
   display: inline-block;
@@ -79,7 +102,7 @@ a:hover, .nav-link:hover {
 
 /* Hide upper and bottom header on scroll down */
 .header-upper.scrolled-down{
-  transform: translateY(-100%);
+  transform: translateY(-150%);
   transition: transform 0.3s ease-in-out;
 }
 /* Hide upper and bottom header on scroll down */

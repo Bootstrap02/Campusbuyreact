@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import images from "../Constants/images";
 import { MdCancel } from "react-icons/md";
 
 export const Callbackmodals = ({ closeCallbackModals, openCallbackSuccessMessage }) => {

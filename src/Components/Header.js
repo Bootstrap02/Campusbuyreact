@@ -7,7 +7,11 @@ import { TbPremiumRights } from "react-icons/tb";
 import { RiAccountPinBoxFill } from "react-icons/ri";
 import { IoMdNotifications } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
+import { MdCancel } from "react-icons/md";
+import { IoMdCloudDone } from "react-icons/io";
+
 import Navbar from './Navbar';
+import {Postproduct} from './Postproduct'
 import useActiveComponent from '../Hooks/UseActiveComponent';
 
 
@@ -18,6 +22,26 @@ const Header = () => {
   const { activeComponent, setActive } = useActiveComponent();
   const [scrollDirection, setScrollDirection] = useState('up');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [modals, setModals] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+
+  const openSuccessMessage = () => {
+    setSuccessMessage('Product posted !');
+  };
+
+  const closeSuccessMessage = () => {
+    setSuccessMessage(false);
+  };
+
+  const openModals = () => {
+    setModals(true);
+  };
+
+  const closeModals = () => {
+    setModals(false);
+  };
+
+
 
 
 
@@ -141,9 +165,9 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <Link className='dropdown-item' to='#'>
+            <NavLink to='signin' className='dropdown-item'>
               Sign up/Sign in
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -172,12 +196,12 @@ const Header = () => {
         </NavLink>
       </div>
       <div className='col-3'>
-        <NavLink to='/postproduct'>
-          <button className='p-2 sell-product-btn btn-warning text-black'>Sell Something</button>
+        <NavLink to=''>
+          <button className='p-2 sell-product-btn btn-warning text-black' onClick={openModals}>Sell Something</button>
         </NavLink>
       </div>
             
-           
+      
           </div>
         </div>
       </div>
@@ -204,6 +228,24 @@ const Header = () => {
    <header className='header-mobile w-[100%] hidden max-lg:block'>
     <Navbar/>
     </header>  
+    <div className='sell-product-modal w-[100%]'>
+              {modals && <Postproduct closeModals={closeModals} openSuccessMessage={openSuccessMessage}/>}
+
+              {successMessage && (
+                        <div className="container max-lg:w-[300px] mt-3 sell-product-response">
+                          <div className="bg-black rounded-lg flex flex-col justify-center items-center max-lg:p-2 max-lg:m-2 ">
+                            <div className="flex flex-col justify-center w-full  items-center rounded-lg border-2 border-[#B59410] max-lg:p-4">
+                              <button className="bg-white ml-auto" onClick={closeSuccessMessage}>
+                              <MdCancel className="ml-auto w-[30px] h-[30px] bg-black text-white" />
+                              </button>
+                              <p className="text-white font-black text-center text-xl mb-2">{successMessage}</p>
+                              <div><IoMdCloudDone className='sent-message-done' /></div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+            </div>
     </>
   )
 }

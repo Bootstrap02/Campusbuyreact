@@ -10,9 +10,12 @@ const Firstpage = () => {
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923226/Campusbuy/Rectangle283_cg0ya0.jpg'
 ];
   const [randomImage, setRandomImage] = useState('');
-  const modelImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_282_sf3aum.png',
-'https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_287_yhfqlc.png',
-'https://res.cloudinary.com/dneejvhch/image/upload/v1702934678/Campusbuy/Rectangle_285_sy4qed.png',
+  const modelImages = [
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702967639/Campusbuy/Rectangle_290_nlqol3.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702967639/Campusbuy/Rectangle_291_yilcyz.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702967639/Campusbuy/Rectangle_288_mvlnvq.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702967639/Campusbuy/Rectangle_292_jimjt4.png',
+'https://res.cloudinary.com/dneejvhch/image/upload/v1702967638/Campusbuy/Rectangle_289_hvqdza.png',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923187/Campusbuy/Rectangle278_mhr17c.png'
 ];
   const [randomModelImage, setRandomModelImage] = useState('');
@@ -41,10 +44,10 @@ const Firstpage = () => {
           <NavLink><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={70} alt='logo'/></NavLink>
        <h2><strong className='text-[#363D94] text-xl'>Campusbuy</strong></h2>
         </div>
-        <div>
+        <div className='text-white'>
           <Firstheader />
         </div>
-        <div><NavLink className='text-white text-bold' to='#'>Sign up/Sign in</NavLink></div>
+        <div><NavLink className='text-white text-bold' to='/signin'>Sign up/Sign in</NavLink></div>
       </div>
       
       <div className='flex justify-between items-center max-lg:hidden'>
@@ -102,7 +105,7 @@ const Firstpage = () => {
 <p className='text-xl text-white'>The most reliable platform for University, Polytechnic, Monotechnic and all Tertiary Institutions Campus trading</p></div>
 
       </div>
-<div className='w-[50%]  mt-[4rem]'><img src={randomModelImage}/></div>
+<div className='w-[50%]  my-[4rem]'><img src={randomModelImage}/></div>
 
       </div>
       </div>
