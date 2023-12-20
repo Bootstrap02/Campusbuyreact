@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link} from 'react-router-dom';
 import {Firstheader} from '../Components/Subheaders';
+import {Minifooter} from '../Components/Subheaders';
 
 export const Signup = ()=> {
 return(
@@ -43,6 +44,7 @@ return(
 </form>
 </div>
 </div>
+<div> <Minifooter/></div>
 </div>
 )
 }
@@ -81,6 +83,7 @@ export const Signin = ()=> {
         </form>
        </div>
         </div>
+        <div> <Minifooter/></div>
     </div>
    )
 

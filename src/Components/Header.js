@@ -121,19 +121,19 @@ const Header = () => {
           <div className='row '>
 
           <div className='col-3 dropdown'>
-        <button
-          className='btn btn-secondary dropdown-toggle p-1'
-          type='button'
-          id='dropdownMenuButton1'
-          data-bs-toggle='dropdown'
-          aria-expanded='false'
-        >
-          <div className='flex gap-2 justify-center items-center'>
-            <RiAccountPinBoxFill className='header-react-icons' />{' '}
-            <span className='text-white'> Account</span>
-          </div>
-        </button>
-        <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
+          <button
+    className='btn btn-secondary dropdown-toggle p-1'
+    type='button'
+    id='dropdownMenuButton1'
+    data-bs-toggle='dropdown'
+    aria-expanded='false'
+  >
+    <div className='flex gap-2 justify-center items-center'>
+      <RiAccountPinBoxFill className='header-react-icons' />
+      <span className='text-white'> Account</span>
+    </div>
+  </button>
+  <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
           <li>
             <NavLink
               className='dropdown-item'
@@ -149,7 +149,7 @@ const Header = () => {
           <li>
             <NavLink
               className='dropdown-item'
-              to='/mainpage/messages'
+              to='/mainpage'
               onClick={() => setActive('Messages')}
             >
               Messages
@@ -158,7 +158,7 @@ const Header = () => {
           <li>
             <NavLink
               className='dropdown-item'
-              to='/mainpage/callbacks'
+              to='/mainpage'
               onClick={() => setActive('Callbacks')}
             >
               Callbacks

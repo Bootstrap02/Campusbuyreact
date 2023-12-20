@@ -23,6 +23,12 @@ body {
 position: fixed;
 }
 
+/* Custom CSS to remove the dropdown arrow */
+.dropdown-toggle-no-caret::after {
+  display: none;
+}
+
+
 .sent-message-done{
   color:green;
   width: 30px;

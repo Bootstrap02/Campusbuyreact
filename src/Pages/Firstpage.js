@@ -76,13 +76,13 @@ const Firstpage = () => {
       <div className='hidden max-lg:block'>
       <div className='flex  justify-between  p-3'>
       <div className='flex flex-col gap-1 '>
-          <NavLink><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={50} alt='logo'/></NavLink>
+          <NavLink to='/'><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={50} alt='logo'/></NavLink>
        <p><strong className='text-[#363D94]'>Campusbuy</strong></p>
         </div>
         <div>
           <Firstheader />
         </div>
-        <div><NavLink className='text-white text-bold' to='#'>Sign up/Sign in</NavLink></div>
+        <div><NavLink to='/signin' className='text-white text-bold' >Sign up/Sign in</NavLink></div>
       </div>
       
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>

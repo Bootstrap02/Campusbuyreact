@@ -220,10 +220,10 @@ export const Minifooter= ()=> {
     </footer>
     <footer className='mobile-footer w-[100%] hidden max-lg:block bg-[#232f3e] shadow-md shadow-[#3b4149]'>
     <div className="upper-mobile-links flex gap-2 m-2 p-2 justify-between items-center">
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></Link></div>           
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Help</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><TbWorld className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  About</span></Link></div>
-            <div><Link className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></Link></div>
+            <div><NavLink to='/' className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></NavLink></div>           
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Help</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><TbWorld className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  About</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></NavLink></div>
             </div>
     </footer>
   </>
