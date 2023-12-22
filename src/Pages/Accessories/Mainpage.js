@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Miniheader, Minifooter } from '../../Components/Subheaders'
@@ -7,6 +6,7 @@ import Wishlist from './Wishlist';
 import Notifications from './Notifications';
 import Messages from './Messages';
 import Callbacks from './Callbacks';
+import Yourproducts from './Yourproducts';
 import useActiveComponent from '../../Hooks/UseActiveComponent';
 
 const Mainpage = () => {
@@ -24,6 +24,8 @@ const Mainpage = () => {
         return <Notifications />;
       case 'Messages':
         return <Messages />;
+      case 'Yourproducts':
+        return <Yourproducts />;
       case 'Callbacks':
         return <Callbacks />;
       default:
@@ -71,6 +73,13 @@ const Mainpage = () => {
           </NavLink>
           <NavLink
             className='m-2 p-2 border border-gray-400  '
+            onClick={() => handleNavLinkClick('Yourproducts')}
+            activeClassName='active-link'
+          >
+            Your Products
+          </NavLink>
+          <NavLink
+            className='m-2 p-2 border border-gray-400  '
             onClick={() => handleNavLinkClick('Callbacks')}
             activeClassName='active-link'
           >
@@ -110,6 +119,13 @@ const Mainpage = () => {
             activeClassName='active-link'
           >
             Messages
+          </NavLink>
+          <NavLink
+            className=' border border-gray-400 text-center p-2  '
+            onClick={() => handleNavLinkClick('Yourproducts')}
+            activeClassName='active-link'
+          >
+            Your Products
           </NavLink>
           <NavLink
             className=' border border-gray-400 text-center p-2  '

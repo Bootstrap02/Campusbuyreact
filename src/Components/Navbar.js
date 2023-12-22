@@ -104,6 +104,15 @@ const Navbar = () => {
             <NavLink
               className='dropdown-item'
               to='/mainpage'
+              onClick={() => setActive('Yourproducts')}
+            >
+              Your Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage'
               onClick={() => setActive('Callbacks')}
             >
               Callbacks
@@ -125,7 +134,7 @@ const Navbar = () => {
             
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></NavLink></div>
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></NavLink></div>
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/about'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/dummyabout'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></NavLink></div>
             </div>
         </header>
        <header
@@ -157,7 +166,7 @@ const Navbar = () => {
               {modals && <Postproduct closeModals={closeModals} openSuccessMessage={openSuccessMessage}/>}
 
               {successMessage && (
-                        <div className="container  mt-3 sell-product-response">
+                        <div className="  mt-3 sell-product-response">
                           <div className="bg-black rounded-lg flex flex-col justify-center items-center max-lg:p-2 max-lg:m-2 ">
                             <div className="flex flex-col justify-center w-full  items-center rounded-lg border-2 border-[#B59410] max-lg:p-4">
                               <button className="bg-white ml-auto" onClick={closeSuccessMessage}>

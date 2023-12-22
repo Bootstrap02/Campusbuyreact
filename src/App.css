@@ -360,6 +360,16 @@ Footer:not(:first-child){
   top:5px;
   left:5px;
 }
+.product-card .card-person-button{
+  position:absolute;
+  bottom:5px;
+  right:5px;
+}
+.product-card .mobile-card-person-button{
+  position:absolute;
+  bottom:5px;
+  left:5px;
+}
 
  .trending-products{
   color:#FFD700;

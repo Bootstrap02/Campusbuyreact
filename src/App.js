@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route,  } from 'react-router-dom';
 import './App.css';
 import Layout from './Components/Layout';
 import Home from './Pages/Home';
-import About from './Pages/About';
+import {About} from './Pages/About';
+import Dummyabout from './Pages/Dummyabout';
 import Contact from './Pages/Contact';
 import {Signup} from './Pages/Signup';
 import {Signin} from './Pages/Signup';
@@ -25,7 +26,8 @@ function App() {
       <Route path='/firstpage' element={<Firstpage />}/>
         <Route path="/" element={<Layout />}>
           <Route index element= {<Home />}/>
-          <Route path='/about' element= {<About />}/>
+          
+          <Route path='/dummyabout' element= {<Dummyabout />}/>
           <Route path='/contact' element= {<Contact />}/>
           
           {/* <Route path='/help' element= {<Help />}/> */}
@@ -34,6 +36,7 @@ function App() {
         <Route path='/mainpage' element= {<Mainpage />}/>
         <Route path='/signup' element= {<Signup />}/>
         <Route path='/signin' element= {<Signin />}/>
+        <Route path='/about' element= {<About />}/>
         {/* <Route path='/mainpage/account' element= {<Account/>}/>
         <Route path='/mainpage/wishlist' element= {<Wishlist />}/>
         <Route path='/mainpage/messages' element= {<Messages />}/>

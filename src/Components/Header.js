@@ -159,6 +159,15 @@ const Header = () => {
             <NavLink
               className='dropdown-item'
               to='/mainpage'
+              onClick={() => setActive('Yourproducts')}
+            >
+              Your Products
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage'
               onClick={() => setActive('Callbacks')}
             >
               Callbacks
@@ -220,7 +229,7 @@ const Header = () => {
         <NavLink to='/contact'><span  className=' text-white'>Contact</span></NavLink>
       </div>
       <div className='col-2'>
-        <NavLink to='/help'><span  className=' text-white'>Help</span></NavLink>
+        <NavLink to='/dummyabout'><span  className=' text-white'>Help</span></NavLink>
       </div>
     </div>
    </div>
@@ -232,7 +241,7 @@ const Header = () => {
               {modals && <Postproduct closeModals={closeModals} openSuccessMessage={openSuccessMessage}/>}
 
               {successMessage && (
-                        <div className="container max-lg:w-[300px] mt-3 sell-product-response">
+                        <div className=" max-lg:w-[300px] mt-3 sell-product-response">
                           <div className="bg-black rounded-lg flex flex-col justify-center items-center max-lg:p-2 max-lg:m-2 ">
                             <div className="flex flex-col justify-center w-full  items-center rounded-lg border-2 border-[#B59410] max-lg:p-4">
                               <button className="bg-white ml-auto" onClick={closeSuccessMessage}>

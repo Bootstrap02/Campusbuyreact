@@ -30,7 +30,7 @@ export const Firstheader = ()=> {
         <NavLink to='/contact'><span>Contact</span></NavLink>
       </div>
       <div className='mx-2 '>
-        <NavLink to='/help'><span>Help</span></NavLink>
+        <NavLink to='/dummyabout'><span>Help</span></NavLink>
       </div>
     </div>
   
@@ -115,6 +115,15 @@ export const Miniheader = ()=> {
         </NavLink>
       </li>
       <li>
+            <NavLink
+              className='dropdown-item'
+              to='/mainpage'
+
+>
+              Your Products
+            </NavLink>
+          </li>
+      <li>
         <NavLink
           className='dropdown-item'
           to='/mainpage/callbacks'
@@ -176,7 +185,7 @@ export const Miniheader = ()=> {
     <NavLink to='/contact'><span  className=' text-white'>Contact</span></NavLink>
   </div>
   <div className='col-2'>
-    <NavLink to='/help'><span  className=' text-white'>Help</span></NavLink>
+    <NavLink to='/dummyabout'><span  className=' text-white'>Help</span></NavLink>
   </div>
 </div>
 </div>
@@ -186,7 +195,7 @@ export const Miniheader = ()=> {
               {modals && <Postproduct closeModals={closeModals} openSuccessMessage={openSuccessMessage}/>}
 
               {successMessage && (
-                        <div className="container max-lg:w-[300px] mt-3 sell-product-response">
+                        <div className=" max-lg:w-[300px] mt-3 sell-product-response">
                           <div className="bg-black rounded-lg flex flex-col justify-center items-center max-lg:p-2 max-lg:m-2 ">
                             <div className="flex flex-col justify-center w-full  items-center rounded-lg border-2 border-[#B59410] max-lg:p-4">
                               <button className="bg-white ml-auto" onClick={closeSuccessMessage}>
@@ -221,8 +230,8 @@ export const Minifooter= ()=> {
     <footer className='mobile-footer w-[100%] hidden max-lg:block bg-[#232f3e] shadow-md shadow-[#3b4149]'>
     <div className="upper-mobile-links flex gap-2 m-2 p-2 justify-between items-center">
             <div><NavLink to='/' className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></NavLink></div>           
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Help</span></NavLink></div>
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><TbWorld className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  About</span></NavLink></div>
+            <div><NavLink to='/dummyabout' className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Help</span></NavLink></div>
+            <div><NavLink to='/about' className='flex  flex-col gap-1 justify-center items-center'><TbWorld className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  About</span></NavLink></div>
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></NavLink></div>
             </div>
     </footer>

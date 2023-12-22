@@ -54,7 +54,7 @@ const Firstpage = () => {
       <div className='w-[60%] mt-[-6rem]'>
       <div className=' mr-[auto]'><div className="input-group rounded-[10px] flex w-[100%] justify-start ">
   <input type="text" className="form-control py-3 m-2 w-[100%]  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
-  <button type="button" className="btn bg-[#FFCA28] p-3 rounded-[20px] text-black btn-outline-secondary"><strong>Search</strong></button>
+  <NavLink to='/' className="btn bg-[#FFCA28] flex items-center rounded-[20px] text-black btn-outline-secondary">  <button type="button" ><strong>Search</strong></button></NavLink>
   <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
   </button>
@@ -66,8 +66,8 @@ const Firstpage = () => {
     <li><a className="dropdown-item first-pagelist border" href="#">Separated link</a></li>
   </ul>
 </div></div>
-<div className=' m-4 mt-[2rem] flex flex-col gap-4 '><span className='text-4xl text-bold text-[#D27681]'>Do Business with your Neighbours and Colleagues through Campusbuy.</span>
-<p className='text-xl text-white'>The most reliable platform for University, Polytechnic, Monotechnic and all Tertiary Institutions Campus trading</p></div>
+<div className=' m-4 mt-[2rem] flex flex-col gap-4 '><span className='text-4xl text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
+<p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
       </div>
 <div className='w-[35%]'><img src={randomModelImage}/></div>
 
@@ -88,8 +88,8 @@ const Firstpage = () => {
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>
       <div className='mt-[4rem]'>
       <div className='w-[100%] '><div className="input-group rounded-[10px] flex justify-center ">
-  <input type="text" className="form-control py-2 m-1  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
-  <button type="button" className="btn bg-[#FFCA28] p-2 rounded-[20px] text-black btn-outline-secondary"><strong>Search</strong></button>
+  <input type="text" className="form-control  m-1  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
+  <NavLink to='/'  className="btn bg-[#FFCA28] p-2 flex items-center rounded-[20px] text-black btn-outline-secondary">  <button type="button"><strong>Search</strong></button></NavLink>
   <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
     <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
   </button>

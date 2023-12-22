@@ -59,7 +59,7 @@ const Footer = () => {
               <h6 className='text-xl'>Campusbuy Office</h6>
               <p>Block 26, 23 road, Festac Extension, Old Ojo road, Satellite-town, Lagos, Nigeria. </p>
               <p>+2348164910957, +2347042380116, +2349069412463, +2348188317279</p>
-              <p>louisjoseph131@gmail.com, loui[10px]atrix47@gmail.com, udegbueconfidence@gmail.com</p>
+              <p>louisjoseph131@gmail.com, louismatrix47@gmail.com, udegbueconfidence@gmail.com</p>
             <div className='social-media-links d-flex align-items-center'>
              <Link><img className='footer-social-media-images' src='https://res.cloudinary.com/dneejvhch/image/upload/v1697455019/Isioma_project/work/facebook_egls0e.png' alt='facebook' width={30}/></Link>
              <Link><img className='footer-social-media-images' src='https://res.cloudinary.com/dneejvhch/image/upload/v1697455239/Isioma_project/work/twitter_njn3rw.png' alt='twitter' width={30}/></Link>
