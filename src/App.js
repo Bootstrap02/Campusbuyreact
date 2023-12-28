@@ -8,7 +8,8 @@ import Dummyabout from './Pages/Dummyabout';
 import Contact from './Pages/Contact';
 import {Signup} from './Pages/Signup';
 import {Signin} from './Pages/Signup';
-import Mainpage from './Pages/Accessories/Mainpage'
+import Mainpage from './Pages/Accessories/Mainpage';
+import FAQs from './Pages/FAQs';
 // import Account from './Pages/Accessories/Account'
 // import Wishlist from './Pages/Accessories/Wishlist'
 // import Messages from './Pages/Accessories/Messages'
@@ -28,7 +29,7 @@ function App() {
           <Route index element= {<Home />}/>
           
           <Route path='/dummyabout' element= {<Dummyabout />}/>
-          <Route path='/contact' element= {<Contact />}/>
+          
           
           {/* <Route path='/help' element= {<Help />}/> */}
 <Route path='/productpage/:title' element={<Productpage />}/>
@@ -37,6 +38,8 @@ function App() {
         <Route path='/signup' element= {<Signup />}/>
         <Route path='/signin' element= {<Signin />}/>
         <Route path='/about' element= {<About />}/>
+        <Route path='/contact' element= {<Contact />}/>
+        <Route path='/faqs' element= {<FAQs />}/>
         {/* <Route path='/mainpage/account' element= {<Account/>}/>
         <Route path='/mainpage/wishlist' element= {<Wishlist />}/>
         <Route path='/mainpage/messages' element= {<Messages />}/>

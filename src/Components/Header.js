@@ -229,7 +229,7 @@ const Header = () => {
         <NavLink to='/contact'><span  className=' text-white'>Contact</span></NavLink>
       </div>
       <div className='col-2'>
-        <NavLink to='/dummyabout'><span  className=' text-white'>Help</span></NavLink>
+        <NavLink to='/faqs'><span  className=' text-white'>FAQs</span></NavLink>
       </div>
     </div>
    </div>

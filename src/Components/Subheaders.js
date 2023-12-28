@@ -30,7 +30,7 @@ export const Firstheader = ()=> {
         <NavLink to='/contact'><span>Contact</span></NavLink>
       </div>
       <div className='mx-2 '>
-        <NavLink to='/dummyabout'><span>Help</span></NavLink>
+        <NavLink to='/faqs'><span>FAQs</span></NavLink>
       </div>
     </div>
   
@@ -185,7 +185,7 @@ export const Miniheader = ()=> {
     <NavLink to='/contact'><span  className=' text-white'>Contact</span></NavLink>
   </div>
   <div className='col-2'>
-    <NavLink to='/dummyabout'><span  className=' text-white'>Help</span></NavLink>
+    <NavLink to='/faqs'><span  className=' text-white'>FAQs</span></NavLink>
   </div>
 </div>
 </div>
@@ -230,9 +230,9 @@ export const Minifooter= ()=> {
     <footer className='mobile-footer w-[100%] hidden max-lg:block bg-[#232f3e] shadow-md shadow-[#3b4149]'>
     <div className="upper-mobile-links flex gap-2 m-2 p-2 justify-between items-center">
             <div><NavLink to='/' className='flex  flex-col gap-1 justify-center items-center'><MdHome className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Home</span></NavLink></div>           
-            <div><NavLink to='/dummyabout' className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Help</span></NavLink></div>
+            <div><NavLink to='/faqs' className='flex  flex-col gap-1 justify-center items-center'><BsFillQuestionCircleFill  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  FAQs</span></NavLink></div>
             <div><NavLink to='/about' className='flex  flex-col gap-1 justify-center items-center'><TbWorld className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  About</span></NavLink></div>
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></NavLink></div>
+            <div><NavLink to='/contact' className='flex  flex-col gap-1 justify-center items-center'><MdAddIcCall  className='mobile-footer-react-icons'/>  <span  className='text-white text-[10px]'>  Contact</span></NavLink></div>
             </div>
     </footer>
   </>

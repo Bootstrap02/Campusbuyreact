@@ -4,7 +4,8 @@ import { Firstheader } from '../Components/Subheaders';
 import { Minifooter } from '../Components/Subheaders';
 
 const Firstpage = () => {
-  const backgroundImages = ['https://res.cloudinary.com/dneejvhch/image/upload/v1702923189/Campusbuy/Rectangle282_jjals7.png',
+  const backgroundImages = [
+  'https://res.cloudinary.com/dneejvhch/image/upload/v1702923189/Campusbuy/Rectangle282_jjals7.png',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923184/Campusbuy/Rectangle281_e14kee.webp',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923224/Campusbuy/Rectangle284_nwr2av.jpg',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923226/Campusbuy/Rectangle283_cg0ya0.jpg'
@@ -101,8 +102,8 @@ const Firstpage = () => {
     <li><a className="dropdown-item first-pagelist border" href="#">Separated link</a></li>
   </ul>
 </div></div>
-<div className='  mt-[3rem] flex flex-col gap-4 '><span className='text-[2rem] text-bold text-[#D27681]'>Do Business with your Neighbours and Colleagues through Campusbuy.</span>
-<p className='text-xl text-white'>The most reliable platform for University, Polytechnic, Monotechnic and all Tertiary Institutions Campus trading</p></div>
+<div className='  mt-[3rem] flex flex-col gap-4 '><span className='text-[2rem] text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
+<p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
 
       </div>
 <div className='w-[50%]  my-[4rem]'><img src={randomModelImage}/></div>

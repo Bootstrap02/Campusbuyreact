@@ -134,7 +134,7 @@ const Navbar = () => {
             
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></NavLink></div>
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></NavLink></div>
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/dummyabout'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Help</span></NavLink></div>
+            <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/faqs'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  FAQs</span></NavLink></div>
             </div>
         </header>
        <header
