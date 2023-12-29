@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
 import { NavLink, Link } from 'react-router-dom';
 import { Firstheader } from '../Components/Subheaders';
 import { Minifooter } from '../Components/Subheaders';
+import axios from 'axios';
+import Select from 'react-select';
 
 const Firstpage = () => {
   const backgroundImages = [
@@ -19,15 +22,46 @@ const Firstpage = () => {
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702967638/Campusbuy/Rectangle_289_hvqdza.png',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923187/Campusbuy/Rectangle278_mhr17c.png'
 ];
+
+const [universities, setUniversities] = useState([])
   const [randomModelImage, setRandomModelImage] = useState('');
+  const API_KEY = 'https://bootstrapnode.cyclic.app/getuniversities'
+
+  const dispatch = useDispatch()
+  const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university })
 
   useEffect(() => {
-    // Pick a random image from the array
     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
     setRandomImage(backgroundImages[randomIndex]);
+  
     const modelIndex = Math.floor(Math.random() * modelImages.length);
     setRandomModelImage(modelImages[modelIndex]);
+  
+    const fetchUniversities = async () => {
+      try {
+        const response = await axios.get(API_KEY);
+        setUniversities(response.data);
+        getSchools(response.data); // Pass the updated data directly
+        console.log(response.data);
+      } catch (error) {
+        console.error('Error fetching universities:', error);
+        // Handle error as needed
+      }
+    };
+  
+    fetchUniversities();
   }, []);
+  
+  const [selectedOption, setSelectedOption] = useState(null);
+
+
+
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+  console.log(universities)
+
+const allUniversities= useSelector(state => state.schools.universities)
 
   const mainBG = {
     backgroundImage: `url('${randomImage}')`,
@@ -50,29 +84,35 @@ const Firstpage = () => {
         </div>
         <div><NavLink className='text-white text-bold' to='/signin'>Sign up/Sign in</NavLink></div>
       </div>
-      
       <div className='flex justify-between items-center max-lg:hidden'>
       <div className='w-[60%] mt-[-6rem]'>
-      <div className=' mr-[auto]'><div className="input-group rounded-[10px] flex w-[100%] justify-start ">
-  <input type="text" className="form-control py-3 m-2 w-[100%]  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
-  <NavLink to='/' className="btn bg-[#FFCA28] flex items-center rounded-[20px] text-black btn-outline-secondary">  <button type="button" ><strong>Search</strong></button></NavLink>
-  <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-    <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
-  </button>
-  <ul className="dropdown-menu dropdown-menu-end w-[100%]">
-    <li><a className="dropdown-item first-pagelist border" href="#">Action</a></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Another action</a></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Something else here</a></li>
-    <li><hr className="dropdown-divider"/></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Separated link</a></li>
-  </ul>
-</div></div>
-<div className=' m-4 mt-[2rem] flex flex-col gap-4 '><span className='text-4xl text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
-<p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
+        
+        <div className="search-container flex w-[100%]">
+      <Select className='w-[100%] p-2 rounded-md border-2 border-black'
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for..."
+        isClearable
+      />
+      <button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
+    </div>
+        <div className='m-4 mt-[2rem] flex flex-col gap-4 '>
+          <span className='text-4xl text-bold text-[#D27681]'>
+            do business with your neighbours and colleagues through campusbuy.
+          </span>
+          <p className='text-xl text-white'>
+            the most reliable platform for university, polytechnic, monotechnic, and all tertiary institutions campus trading
+          </p>
+        </div>
       </div>
-<div className='w-[35%]'><img src={randomModelImage}/></div>
+      <div className='w-[35%]'><img src={randomModelImage} alt='random model' /></div>
+    </div>
 
-      </div>
+      
 
       <div className='hidden max-lg:block'>
       <div className='flex  justify-between  p-3'>
@@ -88,20 +128,19 @@ const Firstpage = () => {
       
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>
       <div className='mt-[4rem]'>
-      <div className='w-[100%] '><div className="input-group rounded-[10px] flex justify-center ">
-  <input type="text" className="form-control  m-1  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
-  <NavLink to='/'  className="btn bg-[#FFCA28] p-2 flex items-center rounded-[20px] text-black btn-outline-secondary">  <button type="button"><strong>Search</strong></button></NavLink>
-  <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-    <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
-  </button>
-  <ul className="dropdown-menu dropdown-menu-end w-[100%]">
-    <li><a className="dropdown-item first-pagelist border" href="#">Action</a></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Another action</a></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Something else here</a></li>
-    <li><hr className="dropdown-divider"/></li>
-    <li><a className="dropdown-item first-pagelist border" href="#">Separated link</a></li>
-  </ul>
-</div></div>
+      <div className='w-[100%] '><div className="search-container flex w-[100%]">
+      <Select className='w-[100%] p-2 rounded-md border-2 border-black'
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for..."
+        isClearable
+      />
+      <button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
+    </div></div>
 <div className='  mt-[3rem] flex flex-col gap-4 '><span className='text-[2rem] text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
 <p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
 
@@ -117,3 +156,4 @@ const Firstpage = () => {
 };
 
 export default Firstpage;
+

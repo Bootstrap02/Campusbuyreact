@@ -1,0 +1,37 @@
+<div className='flex justify-between items-center max-lg:hidden'>
+      <div className='w-[60%] mt-[-6rem]'>
+      {/* <div className=' mr-[auto]'><div className="input-group rounded-[10px] flex w-[100%] justify-start ">
+  <input type="text" className="form-control py-3 m-2 w-[100%]  border shadow-lg" aria-label="Text input with segmented dropdown button" placeholder='Search for your School eg: Uniben'/>
+  <NavLink to='/' className="btn bg-[#FFCA28] flex items-center rounded-[20px] text-black btn-outline-secondary">  <button type="button" ><strong>Search</strong></button></NavLink>
+  <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+    <span className="visually-hidden firstpage-dropdown">Toggle Dropdown</span>
+  </button>
+  {allUniversities.map((university) => (
+  <ul className="dropdown-menu dropdown-menu-end w-[100%]" key={university.fullname}>
+    <li><a className="dropdown-item first-pagelist border" href="#">{university.fullname}</a></li>
+  </ul>
+))}
+
+  
+  
+</div></div> */}
+<div class="dropdown-container">
+  <input type="text" class="search-input" placeholder="Search for your School eg: Uniben"/>
+  <button class="search-button"><strong>Search</strong></button>
+  <div class="dropdown">
+    <select class="custom-select">
+      <option value="" selected disabled>Select an option</option>
+      {allUniversities.map((university) => (
+        <option value={university.fullname} key={university.fullname}>
+          {university.fullname}
+        </option>
+      ))}
+    </select>
+  </div>
+</div>
+<div className=' m-4 mt-[2rem] flex flex-col gap-4 '><span className='text-4xl text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
+<p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
+      </div>
+<div className='w-[35%]'><img src={randomModelImage}/></div>
+
+      </div>
