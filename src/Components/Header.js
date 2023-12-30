@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
+import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import {BsSearch} from 'react-icons/bs';
 import { MdLocalShipping } from "react-icons/md";
@@ -9,6 +11,7 @@ import { IoMdNotifications } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
+import Select from 'react-select';
 
 import Navbar from './Navbar';
 import {Postproduct} from './Postproduct'
@@ -43,8 +46,6 @@ const Header = () => {
 
 
 
-
-
   const handleScroll = () => {
     const currentScrollPos = document.documentElement.scrollTop;
 
@@ -57,12 +58,44 @@ const Header = () => {
     setPrevScrollPos(currentScrollPos);
   };
 
+
+  const [universities, setUniversities] = useState([])
+  const API_KEY = 'https://bootstrapnode.cyclic.app/getuniversities'
+
+  const dispatch = useDispatch()
+  const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university })
+  const allUniversities= useSelector(state => state.schools.universities)
+
+
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
+  useEffect(()=>{
+    const fetchUniversities = async () => {
+      try {
+        const response = await axios.get(API_KEY);
+        setUniversities(response.data);
+        getSchools(response.data); // Pass the updated data directly
+      } catch (error) {
+        console.error('Error fetching universities:', error);
+        // Handle error as needed
+      }
+    };
+  
+    fetchUniversities();
+  },[])
 
+ 
+
+  const [selectedOption, setSelectedOption] = useState(null);
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  
   return (
     <>
     <header className='w-[100%] header-top-strip py-3 max-lg:hidden'>
@@ -83,21 +116,20 @@ const Header = () => {
             <TbPremiumRights className='header-react-icons' />  <span  className=' text-white'>  Premium Services</span></NavLink>
             <p className='text-secondary mb-0'>Show your Products to more Customers</p>
           </div>
-          <div className='col-md-3'>
-            <div className="input-group">
-  <input type="text" className="form-control py-1" aria-label="Text input with segmented dropdown button" placeholder='eg: Uniben'/>
-  <button type="button" className="btn bg-[#FFCA28] text-black btn-outline-secondary">Search</button>
-  <button type="button" className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-    <span className="visually-hidden">Toggle Dropdown</span>
-  </button>
-  <ul className="dropdown-menu dropdown-menu-end">
-    <li><a className="dropdown-item" href="#">Action</a></li>
-    <li><a className="dropdown-item" href="#">Another action</a></li>
-    <li><a className="dropdown-item" href="#">Something else here</a></li>
-    <li><hr className="dropdown-divider"/></li>
-    <li><a className="dropdown-item" href="#">Separated link</a></li>
-  </ul>
-</div>
+          <div className='col-md-3 search-for-schools'>
+          <div className="search-container flex w-[100%]">
+      <Select className='w-[100%]  rounded-md border-2 border-black'
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for..."
+        isClearable
+      />
+<NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
+</NavLink></div>
       <p className='text-white text-center mb-0'>Search for new School</p>
           </div>
         </div>

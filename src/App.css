@@ -87,12 +87,17 @@ a:hover, .nav-link:hover {
 
 .header-top-strip{
   position: fixed;
-  z-index: 2000;
+  z-index: 3000;
 }
 
 /* Add this CSS to your stylesheet or in a style tag within your component */
 
 /* Sticky header */
+
+.header-top-strip .search-for-schools {
+  z-index: 3000;
+}
+
 
 .header-upper {
   position: sticky;

@@ -1,10 +1,53 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
+import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import { Productcards, Mobileproductcard } from '../Components/Productcards.js';
 import {Mobile} from "../Constants/Hardjson.js"; 
 
 
 const Home = () => { 
+  const [categories, setCategories]= useState([]);
+  const [selectCategory, setSelectCategory]= useState();
+   const API_KEY=[
+    {APARTMENTS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Electronics'},
+   {PHONES_API_KEY :'https://bootstrapnode.cyclic.app/getproducts?category=Phoness'},
+   {BEDS_AND_FURNITURES_API_KEY :'https://bootstrapnode.cyclic.app/getproducts?category=Beds and Furnitures'},
+   {LAPTOPS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Laptops'},
+   {GENERATORS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Generators'},
+   {TUTORIALS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Tutorials'},
+   {HAIRS_AND_WIGS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Hairs and Wigs'},
+   {CLOTHES_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Clothes'},
+   {ELECTRICAL_APPLIANCES_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Electrical Appliances'},
+   {TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Textbooks, Handouts and Materials'},
+    {ALL_PRODUCTS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts'},
+   ]
+
+   const dispatch = useDispatch()
+  const getCategory = (category)=> dispatch({ type:'GET_CATEGORY', category : category })
+  const returnedCategory= useSelector(state => state.categories.categories)
+
+const selectedCategory= (category) => {
+  setSelectCategory(category)
+}
+
+
+
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get(selectCategory);
+        setCategories(response.data);
+        getCategory(response.data); // Pass the updated data directly
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+        // Handle error as needed
+      }
+    };
+  
+    fetchCategories();
+  
+
+  
   return (
     <div className='container '>
     <section className='home-wrapper-1 m-2 p-2 max-lg:hidden'>
@@ -15,16 +58,26 @@ const Home = () => {
             <div className=' flex flex-col gap-2'>
             <h2 className='header text-xl'><strong>Our Hot Categories</strong></h2>
             <div className='flex flex-col gap-1'>
-             <p><Link className='text'>Apartments</Link></p>
-             <p><Link className='text'>Phones</Link></p>
-             <p><Link className='text'>Laptops</Link></p>
-             <p><Link className='text'>Beds and Furnitures</Link></p>
-             <p><Link className='text'>Clothes</Link></p>
-             <p><Link className='text'>Hairs and Wigs</Link></p>
-             <p><Link className='text'>Tutorials</Link></p>
-             <p><Link className='text'>Generators</Link></p>
-             <p><Link className='text'>Eletrical Appliances</Link></p>
-             <p><Link className='text'>Textbooks, Handouts and Materials</Link></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[0].APARTMENTS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Apartments</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[1].PHONES_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Phones</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[2].LAPTOPS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Laptops</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[3].BEDS_AND_FURNITURES_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Beds and Furnitures</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[4].CLOTHES_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Clothes</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[5].HAIRS_AND_WIGS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Hairs and Wigs</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[6].TUTORIALS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Tutorials</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[7].GENERATORS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Generators</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[8].ELECTRICAL_APPLIANCES_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Eletrical Appliances</NavLink></p>
+             <p><NavLink onClick={()=>{selectedCategory(API_KEY[9].TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY)  
+              console.log(returnedCategory)}} className='text'>Textbooks, Handouts and Materials</NavLink></p>
             </div>
             </div>
             <div>
@@ -87,7 +140,7 @@ const Home = () => {
   </div>
 <div className="flex gap-2 justify-center flex-wrap">
 {Mobile.map((mobile) => (
- <div className="w-[30%]">
+ <div className="w-[30%]" key={mobile.title}>
    <div className="flex flex-col gap-2  m-2 p-1 " key={mobile.title}>
     <img src={mobile.image} alt={mobile.title} width={100} />
     <p>{mobile.title}</p>

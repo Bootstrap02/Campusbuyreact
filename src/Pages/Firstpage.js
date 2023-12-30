@@ -59,7 +59,6 @@ const [universities, setUniversities] = useState([])
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
-  console.log(universities)
 
 const allUniversities= useSelector(state => state.schools.universities)
 
@@ -88,7 +87,7 @@ const allUniversities= useSelector(state => state.schools.universities)
       <div className='w-[60%] mt-[-6rem]'>
         
         <div className="search-container flex w-[100%]">
-      <Select className='w-[100%] p-2 rounded-md border-2 border-black'
+      <Select className='w-[100%]  rounded-md border-2 border-black'
         value={selectedOption}
         onChange={handleChange}
         options={allUniversities.map((university) => ({
@@ -98,8 +97,8 @@ const allUniversities= useSelector(state => state.schools.universities)
         placeholder="Search for..."
         isClearable
       />
-      <button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
-    </div>
+<NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
+</NavLink></div>
         <div className='m-4 mt-[2rem] flex flex-col gap-4 '>
           <span className='text-4xl text-bold text-[#D27681]'>
             do business with your neighbours and colleagues through campusbuy.
@@ -129,7 +128,7 @@ const allUniversities= useSelector(state => state.schools.universities)
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>
       <div className='mt-[4rem]'>
       <div className='w-[100%] '><div className="search-container flex w-[100%]">
-      <Select className='w-[100%] p-2 rounded-md border-2 border-black'
+      <Select className='w-[100%]  rounded-md border-2 border-black'
         value={selectedOption}
         onChange={handleChange}
         options={allUniversities.map((university) => ({
@@ -139,8 +138,8 @@ const allUniversities= useSelector(state => state.schools.universities)
         placeholder="Search for..."
         isClearable
       />
-      <button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
-    </div></div>
+<NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
+</NavLink></div></div>
 <div className='  mt-[3rem] flex flex-col gap-4 '><span className='text-[2rem] text-bold text-[#D27681]'>do business with your neighbours and colleagues through campusbuy.</span>
 <p className='text-xl text-white'>the most reliable platform for university, polytechnic, monotechnic and all tertiary institutions campus trading</p></div>
 

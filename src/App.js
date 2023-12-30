@@ -24,9 +24,9 @@ function App() {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/firstpage' element={<Firstpage />}/>
+      <Route path="/" element={<Firstpage />}/>
         <Route path="/" element={<Layout />}>
-          <Route index element= {<Home />}/>
+          <Route path="/home" element= {<Home />}/>
           
           <Route path='/dummyabout' element= {<Dummyabout />}/>
           
