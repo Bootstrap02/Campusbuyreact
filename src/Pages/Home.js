@@ -8,7 +8,7 @@ import {Mobile} from "../Constants/Hardjson.js";
 
 const Home = () => { 
   const [categories, setCategories]= useState([]);
-  const [selectCategory, setSelectCategory]= useState();
+  // const [selectCategory, setSelectCategory]= useState();
    const API_KEY=[
     {APARTMENTS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Electronics'},
    {PHONES_API_KEY :'https://bootstrapnode.cyclic.app/getproducts?category=Phoness'},
@@ -27,15 +27,15 @@ const Home = () => {
   const getCategory = (category)=> dispatch({ type:'GET_CATEGORY', category : category })
   const returnedCategory= useSelector(state => state.categories.categories)
 
-const selectedCategory= (category) => {
-  setSelectCategory(category)
-}
+// const selectedCategory= (category) => {
+//   setSelectCategory(category)
+// }
 
 
 
-    const fetchCategories = async () => {
+    const fetchCategories = async (categoryApi) => {
       try {
-        const response = await axios.get(selectCategory);
+        const response = await axios.get(categoryApi);
         setCategories(response.data);
         getCategory(response.data); // Pass the updated data directly
       } catch (error) {
@@ -44,7 +44,7 @@ const selectedCategory= (category) => {
       }
     };
   
-    fetchCategories();
+    
   
 
   
@@ -58,25 +58,25 @@ const selectedCategory= (category) => {
             <div className=' flex flex-col gap-2'>
             <h2 className='header text-xl'><strong>Our Hot Categories</strong></h2>
             <div className='flex flex-col gap-1'>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[0].APARTMENTS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[0].APARTMENTS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Apartments</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[1].PHONES_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[1].PHONES_API_KEY)  
               console.log(returnedCategory)}} className='text'>Phones</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[2].LAPTOPS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[2].LAPTOPS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Laptops</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[3].BEDS_AND_FURNITURES_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[3].BEDS_AND_FURNITURES_API_KEY)  
               console.log(returnedCategory)}} className='text'>Beds and Furnitures</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[4].CLOTHES_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[4].CLOTHES_API_KEY)  
               console.log(returnedCategory)}} className='text'>Clothes</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[5].HAIRS_AND_WIGS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[5].HAIRS_AND_WIGS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Hairs and Wigs</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[6].TUTORIALS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[6].TUTORIALS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Tutorials</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[7].GENERATORS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[7].GENERATORS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Generators</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[8].ELECTRICAL_APPLIANCES_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[8].ELECTRICAL_APPLIANCES_API_KEY)  
               console.log(returnedCategory)}} className='text'>Eletrical Appliances</NavLink></p>
-             <p><NavLink onClick={()=>{selectedCategory(API_KEY[9].TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY)  
+             <p><NavLink onClick={()=>{fetchCategories(API_KEY[9].TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY)  
               console.log(returnedCategory)}} className='text'>Textbooks, Handouts and Materials</NavLink></p>
             </div>
             </div>
