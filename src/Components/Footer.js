@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; 
+import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import { BsSend } from "react-icons/bs";
 import { MdHome } from "react-icons/md";
@@ -8,6 +10,40 @@ import { TbPremiumRights } from "react-icons/tb";
 import { MdAddIcCall } from "react-icons/md";
 
 const Footer = () => {
+
+  const [categories, setCategories]= useState([]);
+ 
+  const API_KEY=[
+   {APARTMENTS_API_KEY : 'https://campusbuy.onrender.com/getproducts?category=Apartments'},
+  {PHONES_API_KEY :'https://campusbuy.onrender.com/getproducts?category=Phones'},
+  {LAPTOPS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Laptops'},
+  {BAGS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Bags'},
+  {ACCESSORIES_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Accessories'},
+  {HAIRS_AND_WIGS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Hairs and Wigs'},
+  {CLOTHES_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Clothes'},
+  ]
+
+  const dispatch = useDispatch()
+ const getCategory = (category)=> dispatch({ type:'GET_CATEGORY', category : category })
+ const returnedCategory= useSelector(state => state.categories.categories)
+
+
+
+
+
+   const fetchCategories = async (categoryApi) => {
+     try {
+       const response = await axios.get(categoryApi);
+       setCategories(response.data);
+       getCategory(response.data); // Pass the updated data directly
+     } catch (error) {
+       console.error('Error fetching categories:', error);
+       // Handle error as needed
+     }
+   };
+ 
+
+
 
   const [scrollDirection, setScrollDirection] = useState("up");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -94,13 +130,20 @@ const Footer = () => {
           <div className='col-2 flex flex-col gap-2'>
           <h4 className='text-2xl'>Quick Links</h4>
             <div className='flex flex-col gap-2'>
-              <p><Link className='text-white' href = '#'>Apartments</Link></p>
-              <p><Link className='text-white' href = '#'>Accessories</Link></p>
-              <p><Link className='text-white' href = '#'>Laptops</Link></p>
-              <p><Link className='text-white' href = '#'>Phones</Link></p>
-              <p><Link className='text-white' href = '#'>Bags</Link></p>
-              <p><Link className='text-white' href = '#'>Clothes</Link></p>
-              <p><Link className='text-white' href = '#'>Hair and Wigs</Link></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[0].APARTMENTS_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Apartments</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[1].ACCESSORIES_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Accessories</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[2].PHONES_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Phones</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[3].BAGS_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Bags</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[4].CLOTHES_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Clothes</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[5].LAPTOPS_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Laptops</NavLink></p>
+              <p><NavLink onClick={()=>{fetchCategories(API_KEY[6].HAIRS_AND_WIGS_API_KEY)  
+              console.log(returnedCategory)}} className='text-white' href = '#'>Hair and Wigs</NavLink></p>
           </div>
           </div>
           <div className='col-3 flex flex-col gap-2'>

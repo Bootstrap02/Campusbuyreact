@@ -25,7 +25,7 @@ const Firstpage = () => {
 
 const [universities, setUniversities] = useState([])
   const [randomModelImage, setRandomModelImage] = useState('');
-  const API_KEY = 'https://bootstrapnode.cyclic.app/getuniversities'
+  const API_KEY = 'https://campusbuy.onrender.com/getuniversities'
 
   const dispatch = useDispatch()
   const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university })
@@ -42,7 +42,6 @@ const [universities, setUniversities] = useState([])
         const response = await axios.get(API_KEY);
         setUniversities(response.data);
         getSchools(response.data); // Pass the updated data directly
-        console.log(response.data);
       } catch (error) {
         console.error('Error fetching universities:', error);
         // Handle error as needed
@@ -94,7 +93,7 @@ const allUniversities= useSelector(state => state.schools.universities)
           value: university.fullname,
           label: university.fullname,
         }))}
-        placeholder="Search for..."
+        placeholder="Search for your School..."
         isClearable
       />
 <NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>

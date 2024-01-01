@@ -12,6 +12,7 @@ import { FaHeart } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
 import Select from 'react-select';
+import {Signedinmodal} from './Productmodals';
 
 import Navbar from './Navbar';
 import {Postproduct} from './Postproduct'
@@ -59,11 +60,32 @@ const Header = () => {
   };
 
 
-  const [universities, setUniversities] = useState([])
-  const API_KEY = 'https://bootstrapnode.cyclic.app/getuniversities'
+  const [universities, setUniversities] = useState([]);
+  const API_KEY = 'https://campusbuy.onrender.com/getuniversities'
+
+  const SIGNOUT_API_KEY = 'https://campusbuy.onrender.com/logout';
+  const getAccessToken= useSelector(state => state.accessToken.accessToken)
+
+  const dispatchToken = useDispatch();
+  const newAccessToken = (newToken)=> dispatchToken({ type:'DELETE_ACCESSTOKEN', newToken : newToken })
+
+
+  const Signout= async() => {
+    try{
+      const response = await axios.post(SIGNOUT_API_KEY, getAccessToken);
+      newAccessToken(response.data);
+    console.log(response.data);
+
+    }catch (error){
+      console.error('Error signing out Account:', error);
+    }
+    
+  }
+  
+
 
   const dispatch = useDispatch()
-  const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university })
+  const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university });
   const allUniversities= useSelector(state => state.schools.universities)
 
 
@@ -206,8 +228,8 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='signin' className='dropdown-item'>
-              Sign up/Sign in
+            <NavLink to= {getAccessToken.length > 0 ?'/': <Signedinmodal/>} className='dropdown-item'>
+             {getAccessToken.length > 0 ? 'Sign Out' : 'Sign Up/Sign In'}
             </NavLink>
           </li>
         </ul>

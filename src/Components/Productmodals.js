@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { MdCancel } from "react-icons/md";
+import images from '../Constants/images';
+
 
 export const Callbackmodals = ({ closeCallbackModals, openCallbackSuccessMessage }) => {
  
@@ -67,3 +69,47 @@ export const Messagemodals = ({ closeModals, openSuccessMessage }) => {
     </div>
   );
 };
+
+
+export const Createaccountmodal=()=>{
+  return(
+    <div className="container flex gap-2">
+      <h1 className="text-center text-xl text-green-700"><strong>Your Account has been created successfully!</strong></h1>
+      <div><img src={images.picture.sent} width={20} alt="success_image" />
+</div>
+    </div>
+  )
+ 
+}
+
+export const Loginmodal=()=>{
+  return(
+    <div className="container flex gap-2">
+      <h1 className="text-center text-xl text-green-700">You have logged in successfully!</h1>
+      <div><img src={images.picture.sent} width={20} alt="success_image" />
+</div>
+    </div>
+  )
+ 
+}
+export const Signedinmodal=()=>{
+  return(
+    <div className="container flex gap-2">
+      <h1 className="text-center text-xl text-green-700">You have already signed in!</h1>
+      <div><img src={images.picture.sent} width={20} alt="success_image" />
+</div>
+    </div>
+  )
+ 
+}
+
+export const Logoutmodal=()=>{
+  return(
+    <div className="container flex gap-2">
+      <h1 className="text-center text-xl text-red-700">You have logged out successfully!</h1>
+      <div><img src={images.picture.sent} width={20} alt="success_image" />
+</div>
+    </div>
+  )
+ 
+}

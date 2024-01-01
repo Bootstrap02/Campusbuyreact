@@ -8,28 +8,26 @@ import {Mobile} from "../Constants/Hardjson.js";
 
 const Home = () => { 
   const [categories, setCategories]= useState([]);
-  // const [selectCategory, setSelectCategory]= useState();
+ 
    const API_KEY=[
-    {APARTMENTS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Electronics'},
-   {PHONES_API_KEY :'https://bootstrapnode.cyclic.app/getproducts?category=Phoness'},
-   {BEDS_AND_FURNITURES_API_KEY :'https://bootstrapnode.cyclic.app/getproducts?category=Beds and Furnitures'},
-   {LAPTOPS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Laptops'},
-   {GENERATORS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Generators'},
-   {TUTORIALS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Tutorials'},
-   {HAIRS_AND_WIGS_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Hairs and Wigs'},
-   {CLOTHES_API_KEY: 'https://bootstrapnode.cyclic.app/getproducts?category=Clothes'},
-   {ELECTRICAL_APPLIANCES_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Electrical Appliances'},
-   {TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts?category=Textbooks, Handouts and Materials'},
-    {ALL_PRODUCTS_API_KEY : 'https://bootstrapnode.cyclic.app/getproducts'},
+    {APARTMENTS_API_KEY : 'https://campusbuy.onrender.com/getproducts?category=Apartments'},
+   {PHONES_API_KEY :'https://campusbuy.onrender.com/getproducts?category=Phones'},
+   {BEDS_AND_FURNITURES_API_KEY :'https://campusbuy.onrender.com/getproducts?category=Beds and Furnitures'},
+   {LAPTOPS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Laptops'},
+   {GENERATORS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Generators'},
+   {TUTORIALS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Tutorials'},
+   {HAIRS_AND_WIGS_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Hairs and Wigs'},
+   {CLOTHES_API_KEY: 'https://campusbuy.onrender.com/getproducts?category=Clothes'},
+   {ELECTRICAL_APPLIANCES_API_KEY : 'https://campusbuy.onrender.com/getproducts?category=Electrical Appliances'},
+   {TEXTBOOKS_HANDOUT_AND_MATERIALS_API_KEY : 'https://campusbuy.onrender.com/getproducts?category=Textbooks, Handouts and Materials'},
+    {ALL_PRODUCTS_API_KEY : 'https://campusbuy.onrender.com/getproducts'},
    ]
 
    const dispatch = useDispatch()
   const getCategory = (category)=> dispatch({ type:'GET_CATEGORY', category : category })
   const returnedCategory= useSelector(state => state.categories.categories)
 
-// const selectedCategory= (category) => {
-//   setSelectCategory(category)
-// }
+
 
 
 
