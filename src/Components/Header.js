@@ -228,7 +228,7 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to= {getAccessToken.length > 0 ?'/': <Signedinmodal/>} className='dropdown-item'>
+            <NavLink to= {getAccessToken.length > 0 ? <Signedinmodal/> : '/'} className='dropdown-item'>
              {getAccessToken.length > 0 ? 'Sign Out' : 'Sign Up/Sign In'}
             </NavLink>
           </li>

@@ -6,9 +6,9 @@ const initstate = {
   
   
   export const accessTokenReducer = (state = initstate, action) => {
-      if (action.type === 'GET_ACCESS_TOKEN') {
+      if (action.type === 'SEND_ACCESS_TOKEN') {
           return {
-              ...state,
+              
               accessToken: action.accessToken // Concatenate the new todo to the todos array
           }
       }

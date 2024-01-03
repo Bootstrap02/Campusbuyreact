@@ -113,3 +113,14 @@ export const Logoutmodal=()=>{
   )
  
 }
+
+export const Forgotpasswordmodal=()=>{
+  return(
+    <div className="container flex gap-2">
+      <h1 className="text-center text-xl text-green-700">A Password reset link has been sent to your email!</h1>
+      <div><img src={images.picture.sent} width={20} alt="success_image" />
+</div>
+    </div>
+  )
+ 
+}

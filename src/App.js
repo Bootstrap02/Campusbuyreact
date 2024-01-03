@@ -6,8 +6,7 @@ import Home from './Pages/Home';
 import {About} from './Pages/About';
 import Dummyabout from './Pages/Dummyabout';
 import Contact from './Pages/Contact';
-import {Signup} from './Pages/Signup';
-import {Signin} from './Pages/Signup';
+import {Signup, Signin, Forgotpassword, Resetpassword} from './Pages/Signup';
 import Mainpage from './Pages/Accessories/Mainpage';
 import FAQs from './Pages/FAQs';
 // import Account from './Pages/Accessories/Account'
@@ -37,6 +36,8 @@ function App() {
         <Route path='/mainpage' element= {<Mainpage />}/>
         <Route path='/signup' element= {<Signup />}/>
         <Route path='/signin' element= {<Signin />}/>
+        <Route path='/forgotpassword' element= {<Forgotpassword />}/>
+        <Route path='/resetpassword' element= {<Resetpassword />}/>
         <Route path='/about' element= {<About />}/>
         <Route path='/contact' element= {<Contact />}/>
         <Route path='/faqs' element= {<FAQs />}/>
