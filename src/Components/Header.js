@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 import { NavLink, Link } from 'react-router-dom';
 import {BsSearch} from 'react-icons/bs';
@@ -13,21 +14,21 @@ import { MdCancel } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
 import Select from 'react-select';
 import {Signedinmodal} from './Productmodals';
-
 import Navbar from './Navbar';
 import {Postproduct} from './Postproduct'
-import useActiveComponent from '../Hooks/UseActiveComponent';
 
 
 
 
 
 const Header = () => {
-  const { activeComponent, setActive } = useActiveComponent();
   const [scrollDirection, setScrollDirection] = useState('up');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [modals, setModals] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const [login, setLogin] = useState();
+  const [logout, setLogout] = useState();
+  const navigate = useNavigate();
 
   const openSuccessMessage = () => {
     setSuccessMessage('Product posted !');
@@ -63,26 +64,6 @@ const Header = () => {
   const [universities, setUniversities] = useState([]);
   const API_KEY = 'https://campusbuy.onrender.com/getuniversities'
 
-  const SIGNOUT_API_KEY = 'https://campusbuy.onrender.com/logout';
-  const getAccessToken= useSelector(state => state.accessToken.accessToken)
-
-  const dispatchToken = useDispatch();
-  const newAccessToken = (newToken)=> dispatchToken({ type:'DELETE_ACCESSTOKEN', newToken : newToken })
-
-
-  const Signout= async() => {
-    try{
-      const response = await axios.post(SIGNOUT_API_KEY, getAccessToken);
-      newAccessToken(response.data);
-    console.log(response.data);
-
-    }catch (error){
-      console.error('Error signing out Account:', error);
-    }
-    
-  }
-  
-
 
   const dispatch = useDispatch()
   const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university });
@@ -101,6 +82,9 @@ const Header = () => {
         const response = await axios.get(API_KEY);
         setUniversities(response.data);
         getSchools(response.data); // Pass the updated data directly
+        const accessToken =  await JSON.parse(localStorage.getItem('userData'));
+        sendToken(accessToken);
+        console.log(sendToken);
       } catch (error) {
         console.error('Error fetching universities:', error);
         // Handle error as needed
@@ -109,13 +93,70 @@ const Header = () => {
   
     fetchUniversities();
   },[])
+  const sendToken = (userToken) => dispatch({ type: 'SEND_USERTOKEN', userToken });
+  const getAccessToken= useSelector(state => state.userToken.userToken)
+ 
+  const accessedToken =   JSON.parse(localStorage.getItem('userData'));
+  
 
+
+
+  const Signout= async() => {
+    try{
+     await localStorage.removeItem('userData');
+      navigate('/');
+
+    }catch (error){
+      console.error('Error signing out Account:', error);
+    }
+    
+  }
+
+  
+
+  const loginOrOut = () =>{
+    if(accessedToken){
+      Signout();
+  }else{
+    navigate('/signin')
+  }
+}
+
+
+const Loggedin= async() => {
+  try{
+    navigate(`/mainpage/${accessedToken.id}`);
+
+  }catch (error){
+    console.error('Error navigating to Your Account:', error);
+  }
+  
+}
+
+  const loggedinOrOut = () =>{
+    if(accessedToken){
+      Loggedin();
+  }else{
+    navigate('/signin')
+  }
+}
+
+
+
+  
  
 
   const [selectedOption, setSelectedOption] = useState(null);
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
   };
+
+  const sendWishlist = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendNotifications = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendAccount = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendMessages = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendYourproducts = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendCallbacks = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
 
   
   return (
@@ -147,7 +188,7 @@ const Header = () => {
           value: university.fullname,
           label: university.fullname,
         }))}
-        placeholder="Search for..."
+        placeholder="Search for your school"
         isClearable
       />
 <NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>
@@ -189,77 +230,83 @@ const Header = () => {
   </button>
   <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
+              
               onClick={() => {
-                setActive('Account');
+                loggedinOrOut()
+                sendAccount('Account');
                 console.log('Clicked Account');
               }}
               >
               Account
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Messages')}
+              
+              onClick={() => { loggedinOrOut() 
+                sendMessages('Messages')}}
             >
               Messages
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Yourproducts')}
+              
+              onClick={() => { loggedinOrOut() 
+                sendYourproducts('Yourproducts')}}
             >
               Your Products
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Callbacks')}
+              
+              onClick={() => {  loggedinOrOut() 
+                sendCallbacks('Callbacks')}}
             >
               Callbacks
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink to= {getAccessToken.length > 0 ? <Signedinmodal/> : '/'} className='dropdown-item'>
-             {getAccessToken.length > 0 ? 'Sign Out' : 'Sign Up/Sign In'}
-            </NavLink>
+            <a onClick={loginOrOut} className='dropdown-item'>
+             {accessedToken ? 'Sign Out' : 'Sign Up/Sign In'}
+            </a>
           </li>
+          
+
         </ul>
       </div>
       <div className='col-3'>
-        <NavLink
-          to='/mainpage'
+        <a
+          
           className='bg-secondary p-1 flex gap-2 justify-center items-center mx-4'
-          onClick={() => setActive('Wishlist')}
+          onClick={() => {  loggedinOrOut() 
+            sendWishlist('Wishlist')}}
         >
           <FaHeart className='header-react-icons' />
           <span className=' text-white'> Wishlist</span>
-        </NavLink>
+        </a>
       </div>
       <div className='col-3'>
-        <NavLink
-          to='/mainpage'
+        <a
+          
           className='bg-secondary p-1 flex gap-2 justify-center items-center'
-           onClick={() =>{
-            setActive('Notifications')
-            console.log({activeComponent})
+           onClick={() =>{ loggedinOrOut()
+            sendNotifications('Notifications')
            }}
          
         >
           <IoMdNotifications className='header-react-icons' />
           <span className=' text-white'> Notification</span>
-        </NavLink>
+        </a>
       </div>
       <div className='col-3'>
-        <NavLink to=''>
+        <NavLink>
           <button className='p-2 sell-product-btn btn-warning text-black' onClick={openModals}>Sell Something</button>
         </NavLink>
       </div>
