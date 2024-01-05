@@ -70,6 +70,29 @@ const allUniversities= useSelector(state => state.schools.universities)
     height:'100%'
   };
 
+  const accessedToken =   JSON.parse(localStorage.getItem('userData'));
+  const Signout= async() => {
+    try{
+     await localStorage.removeItem('userData');
+      navigate('/');
+
+    }catch (error){
+      console.error('Error signing out Account:', error);
+    }
+    
+  }
+
+  const loginOrOut = () =>{
+    if(accessedToken){
+      Signout();
+  }else{
+    navigate('/signin')
+  }
+}
+
+
+
+
   return (
     <div className='' style={mainBG}>
       <div className='flex  justify-between  p-4 max-lg:hidden'>
@@ -80,7 +103,7 @@ const allUniversities= useSelector(state => state.schools.universities)
         <div className='text-white'>
           <Firstheader />
         </div>
-        <div><NavLink className='text-white text-bold' to='/signin'>Sign up/Sign in</NavLink></div>
+        <div><a onClick={loginOrOut} className='text-white text-bold'>{accessedToken ? 'Sign Out' : 'Sign Up/Sign In'}</a></div>
       </div>
       <div className='flex justify-between items-center max-lg:hidden'>
       <div className='w-[60%] mt-[-6rem]'>
@@ -121,7 +144,7 @@ const allUniversities= useSelector(state => state.schools.universities)
         <div>
           <Firstheader />
         </div>
-        <div><NavLink to='/signin' className='text-white text-bold' >Sign up/Sign in</NavLink></div>
+        <div><a onClick={loginOrOut} className='text-white text-bold'>{accessedToken ? 'Sign Out' : 'Sign Up/Sign In'}</a></div>
       </div>
       
       <div className='flex flex-col justify-center gap-4 items-center  p-2'>
@@ -134,7 +157,7 @@ const allUniversities= useSelector(state => state.schools.universities)
           value: university.fullname,
           label: university.fullname,
         }))}
-        placeholder="Search for..."
+        placeholder="Search for your school..."
         isClearable
       />
 <NavLink to='/home'><button className="search-button p-2 bg-[#FFD700] border-2 rounded-md border-black" onClick={() => console.log(selectedOption)}>Search</button>

@@ -7,17 +7,19 @@ import { MdOutlineHelp } from "react-icons/md";
 import { MdCancel } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
 import {Postproduct} from './Postproduct';
-import useActiveComponent from '../Hooks/UseActiveComponent';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
+import Navbar from './Navbar';
 
 
 
 const Navbar = () => {
-  const { activeComponent, setActive } = useActiveComponent();
   const [scrollDirection, setScrollDirection] = useState("up");
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [modals, setModals] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const navigate = useNavigate();
 
   const openSuccessMessage = () => {
     setSuccessMessage('Product posted !');
@@ -54,11 +56,91 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
 
+  const [universities, setUniversities] = useState([]);
+  const API_KEY = 'https://campusbuy.onrender.com/getuniversities'
+
+
+  const dispatch = useDispatch()
+  const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university });
+  const allUniversities= useSelector(state => state.schools.universities)
+
+
+  useEffect(()=>{
+    const fetchUniversities = async () => {
+      try {
+        const response = await axios.get(API_KEY);
+        setUniversities(response.data);
+        getSchools(response.data); // Pass the updated data directly
+      } catch (error) {
+        console.error('Error fetching universities:', error);
+        // Handle error as needed
+      }
+    };
+  
+    fetchUniversities();
+  },[])
+ 
+  const accessedToken =   JSON.parse(localStorage.getItem('userData'));
+
+  const Signout= async() => {
+    try{
+     await localStorage.removeItem('userData');
+      navigate('/');
+
+    }catch (error){
+      console.error('Error signing out Account:', error);
+    }
+    
+  }
+
+  const loginOrOut = () =>{
+    if(accessedToken){
+      Signout();
+  }else{
+    navigate('/signin')
+  }
+}
+
+
+const Loggedin= async() => {
+  try{
+    navigate(`/mainpage/${accessedToken.id}`);
+
+  }catch (error){
+    console.error('Error navigating to Your Account:', error);
+  }
+  
+}
+
+  const loggedinOrOut = () =>{
+    if(accessedToken){
+      Loggedin();
+  }else{
+    navigate('/signin')
+  }
+}
+
+  const [selectedOption, setSelectedOption] = useState(null);
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
+  };
+
+  const sendWishlist = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendNotifications = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendAccount = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendMessages = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendYourproducts = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+  const sendCallbacks = (activePage) => dispatch({ type: 'GET_ACTIVEPAGE', activePage });
+
+  
+
+
+
   return (
     <div className=" w-[100%] ">
         <header className='upper-mobile-nav w-[100%] flex items-center justify-between shadow-md shadow-[#3b4149] bg-[#131921]'>
             <div className="mobile-logo  px-2 ">
-            <NavLink to='#'><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={80} alt='logo'/></NavLink>
+            <NavLink to='/'><img src='https://res.cloudinary.com/dneejvhch/image/upload/v1697441550/Design_Portfolio/logo_uzgltv.png' width={80} alt='logo'/></NavLink>
             </div>
             <div className="upper-mobile-NavLinks flex gap-2 px-2">
            
@@ -80,49 +162,55 @@ const Navbar = () => {
         </button>
         <ul className='dropdown-menu' aria-labelledby='dropdownMenuButton1'>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
+              
               onClick={() => {
-                setActive('Account');
+                loggedinOrOut()
+                sendAccount('Account');
                 console.log('Clicked Account');
               }}
               >
               Account
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Messages')}
+              
+              onClick={() => { loggedinOrOut() 
+                sendMessages('Messages')}}
             >
               Messages
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Yourproducts')}
+              
+              onClick={() => { loggedinOrOut() 
+                sendYourproducts('Yourproducts')}}
             >
               Your Products
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink
+            <a
               className='dropdown-item'
-              to='/mainpage'
-              onClick={() => setActive('Callbacks')}
+              
+              onClick={() => {  loggedinOrOut() 
+                sendCallbacks('Callbacks')}}
             >
               Callbacks
-            </NavLink>
+            </a>
           </li>
           <li>
-            <NavLink to='signin' className='dropdown-item'>
-              Sign up/Sign in
-            </NavLink>
+            <a onClick={loginOrOut} className='dropdown-item'>
+             {accessedToken ? 'Sign Out' : 'Sign Up/Sign In'}
+            </a>
           </li>
+          
+
         </ul>
       </div>
             
@@ -132,8 +220,14 @@ const Navbar = () => {
             
             
             
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></NavLink></div>
-            <div><NavLink className='flex  flex-col gap-1 justify-center items-center' to='/mainpage'><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></NavLink></div>
+            <div><a  onClick={() => {  
+              loggedinOrOut() 
+            sendWishlist('Wishlist')}} 
+            className='flex  flex-col gap-1 justify-center items-center' ><FaHeart className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Wishlist</span></a></div>
+            <div><a onClick={() =>{ 
+              loggedinOrOut()
+            sendNotifications('Notifications')
+           }} className='flex  flex-col gap-1 justify-center items-center' ><IoMdNotifications className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  Notification</span></a></div>
             <div><NavLink className='flex  flex-col gap-1 justify-center items-center'  to='/faqs'><MdOutlineHelp  className='mobile-header-react-icons'/>  <span  className='text-white text-[8px]'>  FAQs</span></NavLink></div>
             </div>
         </header>
@@ -146,15 +240,16 @@ const Navbar = () => {
             <div>
             <input type="text" placeholder="Search for your product. eg. Laptops" className="border-none rounded-sm w-full my-2 p-2"/>
             <div class="input-group my-2">
-  <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search for  school. eg. unilag"/>
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"><span className='text-white'>Dropdown</span></button>
-  <ul class="dropdown-menu dropdown-menu-end" style={{ zIndex: 3000 }}>
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li class="dropdown-divider"> <hr/></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
+            <Select className='w-[100%]  rounded-md border-2 border-black'
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for your school"
+        isClearable
+      />
 </div>
             <button className="mobile-submit-button rounded-sm p-2 bg-green-700 border">Search</button>
             </div>

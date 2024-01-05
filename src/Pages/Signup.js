@@ -199,46 +199,70 @@ return(
 <h1 className='text-4xl text-bold my-3'>Welcome</h1>
 <p>Create a Campusbuy account <strong>or</strong><NavLink to='/signin' className='underline text-blue-500'>Sign in to your Account</NavLink></p>
 </div>
-<div className='w-[50%] max-lg:w-[100%]'>
-<form className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
+<div className='w-[100%]'>
+<form onSubmit={createAccount} className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
     <div className='flex justify-between'>
         <label htmlFor='Firstname'> Firstname</label>
-        <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Firstname'/>
+        <input type='text' name='firstname' className='p-2 border w-[60%] border-gray-400' placeholder='Firstname'/>
     </div>
     <div className='flex justify-between'>
         <label htmlFor='Lastname'> Lastname</label>
-        <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Lastname'/>
+        <input type='text' name='lastname' className='p-2 border w-[60%] border-gray-400' placeholder='Lastname'/>
     </div>
     <div className='flex justify-between'>
         <label htmlFor='Email Address'> Email Address</label>
-        <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
+        <input type='text' name='email' className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
     </div>
     <div className='flex justify-between'>
         <label htmlFor='Password'> Password</label>
-        <input type='password' className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
+        <input type='password' name='password' className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
     </div>
     <div className='flex justify-between'>
         <label htmlFor='Phone Number'> Phone Number</label>
-        <input type='text' className='p-2 w-[60%] border border-gray-400' placeholder='Phone Number'/>
+        <input type='text' name='mobile' className='p-2 w-[60%] border border-gray-400' placeholder='Phone Number'/>
     </div>
     <div className='flex justify-between'>
-        <label htmlFor='University'> University</label>
-        <input type='text' className='p-2 w-[60%] border border-gray-400' placeholder='University'/>
+        <label htmlFor='Phone Number 2'> Phone Number 2</label>
+        <input type='text' name='mobile2' className='p-2 w-[60%] border border-gray-400' placeholder='Phone Number2'/>
     </div>
+    <div>
+      <div className="w-[100%]">
+      <Select           
+      name='university' 
+      className="form-control p-2 m-2 border max-lg:m-0 max-lg:p-0 border-gray-400"
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for your School..."
+        isClearable
+      />
+</div>
+<div className="input-group mb-3">
+        <Select
+        name='sex' 
+          className="form-control p-2 m-2 border max-lg:m-0 max-lg:p-0 border-gray-400"
+          options={sexOptions}
+          placeholder='Select Gender'
+          isClearable
+        />
+      </div>
+</div>
     <div className='flex justify-between'>
         <label htmlFor='Address'> Address</label>
-        <input type='text' className='p-2 w-[60%] border border-gray-400' placeholder='Address'/>
+        <input type='text' name='address' className='p-2 w-[60%] border border-gray-400' placeholder='Address'/>
     </div>
     
-    <button className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
+    <button type="submit" className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
 </form>
 <NavLink to='/forgotpassword' className='underline text-blue-500'>Forgot Password ?</NavLink>
 </div>
 </div>
 <div><Minifooter/></div>
+<div className='ml-auto create-account-modal border p-4'>{createAccountModals && <Createaccountmodal/>}</div>
 </div>
-
-
 </div>
 )
 }
@@ -354,23 +378,24 @@ const Login = async (e) => {
         <h1 className='text-4xl text-bold my-3'>Welcome</h1>
         <p>Sign in to your Campusbuy Account <strong>or</strong> <NavLink  to= '/signup' className='underline text-blue-500'>Create an Account</NavLink></p>
         </div>
-       <div className='w-[50%] max-lg:w-[100%]'>
-       <form className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
+       <div className='w-[100%]'>
+       <form onSubmit={Login} className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
             <div className='flex justify-between'>
                 <label htmlFor='Email Address'> Email Address</label>
-                <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
+                <input type='text' name='email'  className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
             </div>
             <div className='flex justify-between'>
                 <label htmlFor='Password'> Password</label>
-                <input type='password' className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
+                <input type='password' name='password'  className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
             </div>
             
-            <button className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
+            <button type='submit' className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
         </form>
         <NavLink to='/forgotpassword' className='underline text-blue-500'>Forgot Password ?</NavLink>
        </div>
         </div>
         <div><Minifooter/></div>
+        <div className='ml-auto login-modal border p-4'>{loginModals && <Loginmodal/>}</div>
         </div>
     </div>
    )
@@ -473,21 +498,21 @@ export const Forgotpassword = ()=> {
         <div className='flex flex-col gap-4 justify-center items-center'>
         <div className='text-center'>
         <h1 className='text-4xl text-bold my-3'>Welcome</h1>
-        <p>Sign in to your Campusbuy Account or <NavLink  to= '/signup' className='underline text-blue-500'>Create an Account</NavLink></p>
+        <p>Please input your email address to recover your password <strong>or</strong><NavLink  to= '/signin' className='underline text-blue-500'>Login to your Account</NavLink></p>
         </div>
-       <div className='w-[50%] max-lg:w-[100%]'>
-       <form className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
+       <div className='w-[100%]'>
+       <form onSubmit={forgotPassword} className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
             <div className='flex justify-between'>
                 <label htmlFor='Email Address'> Email Address</label>
-                <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
+                <input type='text' name='email'  className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
             </div>
-            
-            
-            <button className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
+           
+            <button type='submit' className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
         </form>
        </div>
         </div>
         <div><Minifooter/></div>
+        <div className='ml-auto login-modal border p-4'>{forgotPasswordModal && <Forgotpasswordmodal/>}</div>
         </div>
     </div>
    )
@@ -596,23 +621,24 @@ export const Resetpassword = ()=> {
             <h1 className='text-4xl text-bold my-3'>Welcome</h1>
             <p>Sign in to your Campusbuy Account <strong>or</strong> <NavLink  to= '/signup' className='underline text-blue-500'>Create an Account</NavLink></p>
             </div>
-           <div className='w-[50%] max-lg:w-[100%]'>
-           <form className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
+           <div className='w-[100%]'>
+           <form onSubmit={Login} className='p-2 border border-gray-400  w-full flex flex-col gap-5'>
                 <div className='flex justify-between'>
                     <label htmlFor='Email Address'> Email Address</label>
-                    <input type='text' className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
+                    <input type='text' name='email'  className='p-2 border w-[60%] border-gray-400' placeholder='Email Address'/>
                 </div>
                 <div className='flex justify-between'>
                     <label htmlFor='Password'> Password</label>
-                    <input type='password' className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
+                    <input type='password' name='password'  className='p-2 w-[60%] border border-gray-400' placeholder='Password'/>
                 </div>
                 
-                <button className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
+                <button type='submit' className='p-2 inline-block w-full text-white bg-[#141052]'>Submit</button>
             </form>
             <NavLink to='/forgotpassword' className='underline text-blue-500'>Forgot Password ?</NavLink>
            </div>
             </div>
             <div><Minifooter/></div>
+            <div className='ml-auto login-modal border p-4'>{loginModals && <Loginmodal/>}</div>
             </div>
         </div>
        )

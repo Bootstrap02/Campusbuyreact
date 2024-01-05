@@ -45,15 +45,7 @@ const allUniversities= useSelector(state => state.schools.universities)
   const UPDATE_ACCOUNT_API_KEY = 'https://campusbuy.onrender.com/updateuser'
   const DELETE_USER_API_KEY = 'https://campusbuy.onrender.com/deleteuser'
 
-  const deleteAccount = ()=> {
-    try {
-        const response = axios.post(DELETE_USER_API_KEY)
-        console.log(response)
-    } catch (error) {
-        console.error('Error deleting your account:', error);
-        // Handle error as needed
-    }
-  }
+  
 
   const Signout= async() => {
     try{
@@ -114,7 +106,15 @@ const allUniversities= useSelector(state => state.schools.universities)
     }
   };
   
-    
+  const deleteAccount = async()=> {
+    try {
+        const response = await axiosInstance.delete(`${DELETE_USER_API_KEY}/${storedUserData.id}`)
+        console.log(response)
+    } catch (error) {
+        console.error('Error deleting your account:', error);
+        // Handle error as needed
+    }
+  }
 
     const sexOptions = [
       { value: 'male', label: 'Male' },
@@ -185,40 +185,43 @@ const allUniversities= useSelector(state => state.schools.universities)
     />
   </div>
 
-    <div className='w-full'><form className='flex flex-col gap-4 w-full text-[10px] p-2 border border-gray-400 rounded-[10px]  '>
-      <input type='text' placeholder='Firstname' className='p-2   border border-gray-400'/>
-      <input type='text' placeholder='Lastname' className='p-2   border border-gray-400'/>
-      <input type='text' placeholder='Email address' className='p-2   border border-gray-400'/>
-      <input type='text' placeholder='Main Phone Number' className='p-2   border border-gray-400'/>
-      <input type='text' placeholder='Second Phone Number' className='p-2   border border-gray-400'/>
-      <div className='flex gap-2'><input type='password' placeholder='Password' className='p-2   w-full inline-block border border-gray-400'/>
-      <button className='p-2  btn-danger rounded-md border'>Change Password</button></div>
-      <div class="input-group mb-3">
-  <input type="text" className="form-control border border-gray-400  p-2 text-[10px]  " aria-label="Text input with dropdown button" placeholder='School eg. Unilag'/>
-  <button class="btn btn-outline-secondary dropdown-toggle text-[10px]" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-  <ul class="dropdown-menu dropdown-menu-end text-[10px]">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-    <li><hr class="dropdown-divider"/></li>
-    <li><a class="dropdown-item" href="#">Separated link</a></li>
-  </ul>
+    <div className='w-full'><form onSubmit={updateUser} className='flex flex-col gap-4 m-2 p-2 border border-gray-400 rounded-[10px]  max-lg:m-0 max-lg:p-0'>
+      <input type='text' placeholder='Firstname' name='firstname' className='p-2   border border-gray-400'/>
+      <input type='text' placeholder='Lastname' name='lastname' className='p-2   border border-gray-400'/>
+      <input type='text' placeholder='Email address' name='email' className='p-2   border border-gray-400'/>
+      <input type='text' placeholder='Main Phone Number' name='mobile' className='p-2   border border-gray-400'/>
+      <input type='text' placeholder='Second Phone Number' name='mobile2' className='p-2   border border-gray-400'/>
+      <input type='text' name='password' placeholder='Password' className='p-2   w-full inline-block border border-gray-400'/>
+      <div>
+      <div className="w-[100%]">
+      <Select           
+      name='university' 
+      className="form-control   border  border-gray-400"
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for your School..."
+        isClearable
+      />
 </div>
-      <div class="input-group mb-3">
-  <input type="text" className="form-control p-2  border text-[10px]  border-gray-400" aria-label="Text input with dropdown button" placeholder='Sex'/>
-  <button class="btn btn-outline-secondary dropdown-toggle text-[10px]" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>
-  <ul class="dropdown-menu dropdown-menu-end text-[10px]">
-    <li><a class="dropdown-item" href="#">Male</a></li>
-    <li><a class="dropdown-item" href="#">Female</a></li>
-    <li><a class="dropdown-item" href="#">Other</a></li>
-    <li><hr class="dropdown-divider"/></li>
-    <li><a class="dropdown-item" href="#">Prefer not to say</a></li>
-  </ul>
+<div className="input-group mb-3">
+        <Select
+        name='sex' 
+          className="form-control  border  border-gray-400"
+          options={sexOptions}
+          placeholder='Select Gender'
+          isClearable
+        />
+      </div>
 </div>
-<div><button className='p-2  btn-success border rounded-md text-[10px]  '>Save Changes</button></div>
+
+<div><button className='p-1  btn-success border rounded-md  '>Save Changes</button></div>
       </form></div>
-      <div className='flex justify-between  p-2  '><button className='p-2 text-[10px] btn-danger rounded-md'>Logout</button>
-      <button className='p-2    btn-danger rounded-md border text-[10px]'>Delete Account</button></div>
+      <div className='flex justify-between  p-2  '><button  onClick={Signout} className='p-1 text-[10px] btn-danger rounded-md'>Logout</button>
+      <button onClick={deleteAccount}  className='p-1   btn-danger rounded-md border text-[10px]'>Delete Account</button></div>
       </div>
 
     </div>
