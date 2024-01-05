@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'; 
+import { useSelector, useDispatch } from 'react-redux';
+import Select from 'react-select';
 import { useNavigate } from 'react-router-dom'; 
 import {Createaccountmodal, Loginmodal, Forgotpasswordmodal} from '../Components/Productmodals';
 import axios from 'axios';
@@ -19,6 +20,37 @@ const openCreateAccountModal = () => {
 const closeCreateAccountModal = () => {
     setCreateAccountModals(false);
 };
+
+const [universities, setUniversities] = useState([])
+const API_KEY = 'https://campusbuy.onrender.com/getuniversities'
+
+const dispatch = useDispatch()
+const getSchools = (university)=> dispatch({ type:'GET_UNIVERSITIES', schools : university })
+
+useEffect(() => {
+  const fetchUniversities = async () => {
+    try {
+      const response = await axios.get(API_KEY);
+      setUniversities(response.data);
+      getSchools(response.data); // Pass the updated data directly
+    } catch (error) {
+      console.error('Error fetching universities:', error);
+      // Handle error as needed
+    }
+  };
+
+  fetchUniversities();
+}, []);
+
+const [selectedOption, setSelectedOption] = useState(null);
+
+
+
+const handleChange = (selectedOption) => {
+  setSelectedOption(selectedOption);
+};
+
+const allUniversities= useSelector(state => state.schools.universities)
 
 
 
@@ -53,6 +85,16 @@ const createAccount = async (e) => {
         // Handle error as needed
     }
 };
+
+
+const sexOptions = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'other', label: 'Other' },
+    { value: 'preferNotToSay', label: 'Prefer not to say' },
+  ];
+
+
 
 
 console.log(localStorage.getItem('userData'))
@@ -98,9 +140,34 @@ return(
         <input type='text' name='mobile' className='p-2 w-[60%] border border-gray-400' placeholder='Phone Number'/>
     </div>
     <div className='flex justify-between'>
-        <label htmlFor='University'> University</label>
-        <input type='text' name='university' className='p-2 w-[60%] border border-gray-400' placeholder='University'/>
+        <label htmlFor='Phone Number 2'> Phone Number 2</label>
+        <input type='text' name='mobile2' className='p-2 w-[60%] border border-gray-400' placeholder='Phone Number2'/>
     </div>
+    <div className='flex justify-between'>
+      <div className="w-[100%]">
+      <Select           
+      name='university' 
+      className="form-control p-2 m-2 border max-lg:m-0 max-lg:p-0 border-gray-400"
+        value={selectedOption}
+        onChange={handleChange}
+        options={allUniversities.map((university) => ({
+          value: university.fullname,
+          label: university.fullname,
+        }))}
+        placeholder="Search for your School..."
+        isClearable
+      />
+</div>
+<div className="input-group mb-3">
+        <Select
+        name='sex' 
+          className="form-control p-2 m-2 border max-lg:m-0 max-lg:p-0 border-gray-400"
+          options={sexOptions}
+          placeholder='Select Gender'
+          isClearable
+        />
+      </div>
+</div>
     <div className='flex justify-between'>
         <label htmlFor='Address'> Address</label>
         <input type='text' name='address' className='p-2 w-[60%] border border-gray-400' placeholder='Address'/>

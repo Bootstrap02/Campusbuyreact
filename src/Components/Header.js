@@ -13,7 +13,6 @@ import { FaHeart } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 import { IoMdCloudDone } from "react-icons/io";
 import Select from 'react-select';
-import {Signedinmodal} from './Productmodals';
 import Navbar from './Navbar';
 import {Postproduct} from './Postproduct'
 
@@ -26,8 +25,6 @@ const Header = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [modals, setModals] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
-  const [login, setLogin] = useState();
-  const [logout, setLogout] = useState();
   const navigate = useNavigate();
 
   const openSuccessMessage = () => {
@@ -82,9 +79,6 @@ const Header = () => {
         const response = await axios.get(API_KEY);
         setUniversities(response.data);
         getSchools(response.data); // Pass the updated data directly
-        const accessToken =  await JSON.parse(localStorage.getItem('userData'));
-        sendToken(accessToken);
-        console.log(sendToken);
       } catch (error) {
         console.error('Error fetching universities:', error);
         // Handle error as needed
@@ -93,13 +87,8 @@ const Header = () => {
   
     fetchUniversities();
   },[])
-  const sendToken = (userToken) => dispatch({ type: 'SEND_USERTOKEN', userToken });
-  const getAccessToken= useSelector(state => state.userToken.userToken)
  
   const accessedToken =   JSON.parse(localStorage.getItem('userData'));
-  
-
-
 
   const Signout= async() => {
     try{
@@ -111,8 +100,6 @@ const Header = () => {
     }
     
   }
-
-  
 
   const loginOrOut = () =>{
     if(accessedToken){
@@ -140,11 +127,6 @@ const Loggedin= async() => {
     navigate('/signin')
   }
 }
-
-
-
-  
- 
 
   const [selectedOption, setSelectedOption] = useState(null);
   const handleChange = (selectedOption) => {
