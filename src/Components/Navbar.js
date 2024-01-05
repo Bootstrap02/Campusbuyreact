@@ -10,7 +10,7 @@ import {Postproduct} from './Postproduct';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
-import Navbar from './Navbar';
+import Select from 'react-select';
 
 
 

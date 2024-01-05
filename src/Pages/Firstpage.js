@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'; 
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Firstheader } from '../Components/Subheaders';
 import { Minifooter } from '../Components/Subheaders';
 import axios from 'axios';
 import Select from 'react-select';
 
 const Firstpage = () => {
+  
+  const navigate=useNavigate();
   const backgroundImages = [
   'https://res.cloudinary.com/dneejvhch/image/upload/v1702923189/Campusbuy/Rectangle282_jjals7.png',
 'https://res.cloudinary.com/dneejvhch/image/upload/v1702923184/Campusbuy/Rectangle281_e14kee.webp',
